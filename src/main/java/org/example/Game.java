@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class Game {
     private Screen screen;
+    Pacman pacman= new Pacman(35,20);
 
     public Game() {
         try {
@@ -26,6 +27,35 @@ public class Game {
             screen.startScreen();
             screen.doResizeIfNecessary();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void draw() throws IOException {
+        screen.clear();
+        pacman.draw(screen.newTextGraphics());
+        screen.refresh();
+
+    }
+
+    public void run(){
+        boolean flag=true;
+        try {
+            while (flag) {
+                draw();
+                switch (screen.readInput().getKeyType()) {
+                    case ArrowDown -> pacman.setPosition(pacman.moveDown());
+                    case ArrowLeft -> pacman.setPosition(pacman.moveLeft());
+                    case ArrowRight -> pacman.setPosition(pacman.moveRight());
+                    case ArrowUp -> pacman.setPosition(pacman.moveUp());
+                    case Backspace -> {
+                        flag = false;
+                        screen.close();
+                    }
+                }
+            }
+        }
+        catch (IOException e){
             e.printStackTrace();
         }
     }
