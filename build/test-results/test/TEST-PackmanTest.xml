@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PackmanTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-11-21T02:36:55" hostname="LAPTOP-RM9MUP23" time="0.06">
+  <properties/>
+  <testcase name="moveTest()" classname="PackmanTest" time="0.016"/>
+  <testcase name="testEnemyDrawForegroundColor()" classname="PackmanTest" time="0.03"/>
+  <testcase name="Pacman_SetPosition()" classname="PackmanTest" time="0.005"/>
+  <testcase name="Pacman_GetPosition()" classname="PackmanTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
