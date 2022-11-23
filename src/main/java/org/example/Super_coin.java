@@ -5,8 +5,8 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Wall extends Element{
-    public Wall(int x, int y) {
+public class Super_coin extends Element{
+    public Super_coin(int x, int y) {
         super(x, y);
     }
     public Position getPosition() {
@@ -17,9 +17,9 @@ public class Wall extends Element{
         this.position = position;
     }
     public void draw(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.ANSI.BLUE);
-        graphics.setForegroundColor(TextColor.ANSI.BLUE);
+        graphics.setBackgroundColor(TextColor.ANSI.YELLOW_BRIGHT);
+        graphics.setForegroundColor(TextColor.ANSI.YELLOW_BRIGHT);
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), " ");
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "O");
     }
 }

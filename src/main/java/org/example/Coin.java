@@ -1,5 +1,4 @@
 package org.example;
-
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
@@ -18,8 +17,9 @@ public class Coin extends Element{
         this.position = position;
     }
     public void draw(TextGraphics graphics) {
-        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
+        graphics.setBackgroundColor(TextColor.ANSI.YELLOW);
+        graphics.setForegroundColor(TextColor.ANSI.YELLOW);
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "C");
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "o");
     }
 }
