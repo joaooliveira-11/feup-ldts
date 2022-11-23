@@ -2,7 +2,6 @@ package org.example;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -11,6 +10,7 @@ import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
 
 import javax.imageio.ImageIO;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Game {
@@ -59,5 +59,10 @@ public class Game {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    private void map1_builder() throws FileNotFoundException {
+        Map_Reader map_reader = new Map_Reader();
+        map_reader.MAP1_READER();
     }
 }

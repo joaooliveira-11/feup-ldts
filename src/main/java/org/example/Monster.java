@@ -19,6 +19,7 @@ public class Monster extends Element {
     public void setPosition(Position position) {
         this.position = position;
     }
+    @Override
     public Position getPosition() {
         return position;
     }

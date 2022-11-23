@@ -1,22 +1,22 @@
-###################
-#cccccc#ccc#cccccc#
-#c##c#c#c#c#c#c##c#
-#cccs#ccc#ccc#sccc#
-#c##c###c#c###c##c#
-#c#cccccc#cccccc#c#
-#c#c## ##### ##c#c#
-#cccc    A    cccc#
-#c##c# ## ## #c##c#
-#c##c# #BCD# #c##c#
-#cccc# ##### #cccc#
-# ##c#       #c## #
-#  #c# ##### #c#  #
-## #ccccc#ccccc# ##
-#  #ccccc#ccccc#  #
-# ##c###c#c###c#  #
-#cccc#cccPccc#cccc#
-#c#c##c#c#c#c##c#c#
-#c#sccc#ccc#cccs#c#
-#c####c#####c####c#
-#ccccccccccccccccc#
-###################
+wwwwwwwwwwwwwwwwwww
+wccccccwcccwccccccw
+wcwwcwcwcwcwcwcwwcw
+wcccswcccwcccwscccw
+wcwwcwwwcwcwwwcwwcw
+wcwccccccwccccccwcw
+wcwcww wwwww wwcwcw
+wcccc    A    ccccw
+wcwwcw ww ww wcwwcw
+wcwwcw wBCDw wcwwcw
+wccccw wwwww wccccw
+w wwcw       wcww w
+w  wcw wwwww wcw  w
+ww wcccccwcccccw ww
+w  wcccccwcccccw  w
+w wwcwwwcwcwwwcw  w
+wccccwcccPcccwccccw
+wcwcwwcwcwcwcwwcwcw
+wcwscccwcccwcccswcw
+wcwwwwcwwwwwcwwwwcw
+wcccccccccccccccccw
+wwwwwwwwwwwwwwwwwww
