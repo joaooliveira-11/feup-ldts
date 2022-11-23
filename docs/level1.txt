@@ -5,9 +5,9 @@
 #c##c###c#c###c##c#
 #c#cccccc#cccccc#c#
 #c#c## ##### ##c#c#
-#cccc    G    cccc#
+#cccc    A    cccc#
 #c##c# ## ## #c##c#
-#c##c# #GGG# #c##c#
+#c##c# #BCD# #c##c#
 #cccc# ##### #cccc#
 # ##c#       #c## #
 #  #c# ##### #c#  #
