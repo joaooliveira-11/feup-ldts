@@ -1,6 +1,7 @@
 package org.example;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
 import java.util.ArrayList;
@@ -31,18 +32,31 @@ public class Game_map {
         pacman.draw(graphics);
     }
 
-    boolean movePacman(KeyType key) {
-        boolean bool=true;
-        switch (key) {
-            case ArrowDown -> pacman.setPosition(pacman.moveDown());
-            case ArrowLeft -> pacman.setPosition(pacman.moveLeft());
-            case ArrowRight -> pacman.setPosition(pacman.moveRight());
-            case ArrowUp -> pacman.setPosition(pacman.moveUp());
-            case Backspace -> {
-                bool=false;
-            }
+    boolean movePacman(KeyStroke input) {
+        boolean answer = true;
+        switch (input.getKeyType()) {
+            case ArrowDown:
+                pacman.setPosition(pacman.moveDown());
+                break;
+            case ArrowLeft:
+                pacman.setPosition(pacman.moveLeft());
+                break;
+            case ArrowRight:
+                pacman.setPosition(pacman.moveRight());
+                break;
+            case ArrowUp:
+                pacman.setPosition(pacman.moveUp());
+                break;
+            case Character:
+                if (input.getCharacter() == 'q') {
+                    answer = false;
+                }
+                break;
+            case EOF:
+                answer = false;
+                break;
         }
-        return bool;
+        return answer;
     }
     void moveMonsters(){
         for(Monster monster:monsters){

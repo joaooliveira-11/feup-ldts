@@ -1,5 +1,7 @@
 package org.example;
+
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
@@ -30,7 +32,7 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        game_map = new Game_map(19,22);
+        game_map = new Game_map(19, 22);
     }
 
     public void draw() throws IOException {
@@ -40,17 +42,21 @@ public class Game {
 
     }
 
+    private void read_input(KeyStroke input) {
+        System.out.println(input);
+    }
+
     public void run() {
         boolean flag = true;
         try {
             while (flag) {
                 draw();
-                flag=game_map.movePacman(screen.readInput().getKeyType());
-                game_map.moveMonsters();
+                KeyStroke input = screen.readInput();
+                read_input(input);
+                flag = game_map.movePacman(input);
             }
             screen.close();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
