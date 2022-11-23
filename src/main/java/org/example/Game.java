@@ -17,7 +17,7 @@ public class Game {
 
     public Game() {
         try {
-            TerminalSize terminalSize = new TerminalSize(70, 100);
+            TerminalSize terminalSize = new TerminalSize(19, 22);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
 
@@ -30,7 +30,7 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        game_map=new Game_map(70,100);
+        game_map = new Game_map(19,22);
     }
 
     public void draw() throws IOException {
@@ -45,8 +45,10 @@ public class Game {
         try {
             while (flag) {
                 draw();
-                game_map.movePacman(screen.readInput().getKeyType(), flag);
+                flag=game_map.movePacman(screen.readInput().getKeyType());
+                game_map.moveMonsters();
             }
+            screen.close();
         }
         catch (IOException ex) {
             ex.printStackTrace();
