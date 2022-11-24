@@ -9,7 +9,6 @@ import java.util.Random;
 
 
 public class Monster extends Element {
-    private Position position;
 
     public Monster(int x, int y) {
         super(x, y);
@@ -26,26 +25,31 @@ public class Monster extends Element {
 
     public Position move() {
         Random r = new Random();
-        Position ans;
-        switch (r.nextInt(4 - 1) + 1) {
+        int x=r.nextInt(4 - 1) + 1;
+        switch (x) {
             case 1:
-                ans= new Position(position.getX(), position.getY() - 1);
+                position= new Position(position.getX(), position.getY() - 1);
+                break;
             case 2:
-                ans= new Position(position.getX(), position.getY() + 1);
+                position= new Position(position.getX(), position.getY() + 1);
+                break;
             case 3:
-                ans= new Position(position.getX()+1, position.getY());
+                position= new Position(position.getX()+1, position.getY());
+                break;
             case 4:
-                ans= new Position(position.getX()-1, position.getY());
+                position= new Position(position.getX()-1, position.getY());
+                break;
             default:
-                ans=null;
+                position=null;
+                break;
         }
-        return ans;
+        return position;
     }
 
     @Override
     public void draw(TextGraphics graphics) {
         graphics.setForegroundColor(TextColor.ANSI.GREEN);
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "#");
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "&");
     }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MonsterTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-24T03:23:11" hostname="bernardeux" time="0.277">
+  <properties/>
+  <testcase name="moveTest()" classname="MonsterTest" time="0.274"/>
+  <testcase name="Monster_SetPosition()" classname="MonsterTest" time="0.002"/>
+  <testcase name="Monster_GetPosition()" classname="MonsterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -54,6 +54,7 @@ public class Game {
                 KeyStroke input = screen.readInput();
                 read_input(input);
                 flag = game_map.movePacman(input);
+                game_map.moveMonsters();
             }
             screen.close();
         } catch (IOException ex) {

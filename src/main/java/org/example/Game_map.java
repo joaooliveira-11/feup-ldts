@@ -30,6 +30,9 @@ public class Game_map {
 
     void draw(TextGraphics graphics) {
         pacman.draw(graphics);
+        for(Monster monster:monsters){
+            monster.draw(graphics);
+        }
     }
 
     boolean movePacman(KeyStroke input) {
