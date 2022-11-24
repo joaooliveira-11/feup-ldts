@@ -1,8 +1,6 @@
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import org.example.Element;
 import org.example.Monster;
-import org.example.Pacman;
 import org.example.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
