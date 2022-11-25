@@ -1,0 +1,65 @@
+Ttimestamp = 2022-11-25T23:12:58.697699700, ArenaIsClosedTest:allArenasAreClosed = 
+N                              |--------------------jqwik--------------------
+8tries = 1000                  | # of calls to property
+9checks = 1000                 | # of not rejected calls
+Cgeneration = RANDOMIZED       | parameters are randomly generated
+7after-failure = PREVIOUS_SEED | use the previous seed
+Cwhen-fixed-seed = ALLOW       | fixing the random seed is allowed
+9edge-cases#mode = MIXIN       | edge cases are mixed in
+>edge-cases#total = 48         | # of all combined edge cases
+Fedge-cases#tried = 45         | # of edge cases tried in current run
+Kseed = 1542677893268114577    | random seed to reproduce generated values
+
+
+Dtimestamp = 2022-11-25T23:12:58.831691500, PositionTest:getDown = 
+N                              |--------------------jqwik--------------------
+8tries = 1000                  | # of calls to property
+9checks = 1000                 | # of not rejected calls
+Cgeneration = RANDOMIZED       | parameters are randomly generated
+7after-failure = PREVIOUS_SEED | use the previous seed
+Cwhen-fixed-seed = ALLOW       | fixing the random seed is allowed
+9edge-cases#mode = MIXIN       | edge cases are mixed in
+>edge-cases#total = 81         | # of all combined edge cases
+Fedge-cases#tried = 76         | # of edge cases tried in current run
+Kseed = 4513863005086595078    | random seed to reproduce generated values
+
+
+Dtimestamp = 2022-11-25T23:12:58.913917700, PositionTest:getLeft = 
+N                              |--------------------jqwik--------------------
+8tries = 1000                  | # of calls to property
+9checks = 1000                 | # of not rejected calls
+Cgeneration = RANDOMIZED       | parameters are randomly generated
+7after-failure = PREVIOUS_SEED | use the previous seed
+Cwhen-fixed-seed = ALLOW       | fixing the random seed is allowed
+9edge-cases#mode = MIXIN       | edge cases are mixed in
+>edge-cases#total = 81         | # of all combined edge cases
+Fedge-cases#tried = 81         | # of edge cases tried in current run
+Kseed = 3186101275555101650    | random seed to reproduce generated values
+
+
+Btimestamp = 2022-11-25T23:12:58.994923800, PositionTest:getUp = 
+N                              |--------------------jqwik--------------------
+8tries = 1000                  | # of calls to property
+9checks = 1000                 | # of not rejected calls
+Cgeneration = RANDOMIZED       | parameters are randomly generated
+7after-failure = PREVIOUS_SEED | use the previous seed
+Cwhen-fixed-seed = ALLOW       | fixing the random seed is allowed
+9edge-cases#mode = MIXIN       | edge cases are mixed in
+>edge-cases#total = 81         | # of all combined edge cases
+Fedge-cases#tried = 75         | # of edge cases tried in current run
+Kseed = 6374596045322825454    | random seed to reproduce generated values
+
+
+Btimestamp = 2022-11-25T23:12:59.055914, PositionTest:getRight = 
+N                              |--------------------jqwik--------------------
+8tries = 1000                  | # of calls to property
+9checks = 1000                 | # of not rejected calls
+Cgeneration = RANDOMIZED       | parameters are randomly generated
+7after-failure = PREVIOUS_SEED | use the previous seed
+Cwhen-fixed-seed = ALLOW       | fixing the random seed is allowed
+9edge-cases#mode = MIXIN       | edge cases are mixed in
+>edge-cases#total = 81         | # of all combined edge cases
+Fedge-cases#tried = 78         | # of edge cases tried in current run
+Kseed = 5462485449202079779    | random seed to reproduce generated values
+
+
