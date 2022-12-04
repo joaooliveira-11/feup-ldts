@@ -16,10 +16,10 @@ public class GameViewer extends Viewer<Arena> {
     @Override
     public void drawElements(GUI gui) {
         drawElements(gui, getModel().getWalls(), new WallViewer());
-        drawElements(gui, getModel().getMonsters(), new MonsterViewer());
-        drawElement(gui, getModel().getPacman(), new HeroViewer());
         drawElements(gui, getModel().getCoins(), new CoinViewer());
         drawElements(gui, getModel().getSuperCoins(), new SuperCoinViewer());
+        drawElements(gui, getModel().getMonsters(), new MonsterViewer());
+        drawElement(gui, getModel().getPacman(), new HeroViewer());
         gui.drawText(new Position(0, 0), "Vidas: " + getModel().getPacman().getVidas(), "#FFD700");
         gui.drawText(new Position(10, 0), "Pontos: " + getModel().getPacman().getPontos(), "#FFD700");
     }

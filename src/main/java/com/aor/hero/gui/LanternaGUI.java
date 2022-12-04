@@ -98,11 +98,11 @@ public class LanternaGUI implements GUI {
     }
 
     public void drawCoin(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'o', "#CC0000");
+        drawCharacter(position.getX(), position.getY(), 'o', "#DAA520");
     }
 
     public void drawSupCoin(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'O', "#CC0000");
+        drawCharacter(position.getX(), position.getY(), 'O', "#DAA520");
     }
 
     @Override
