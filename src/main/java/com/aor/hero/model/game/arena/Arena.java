@@ -84,4 +84,18 @@ public class Arena {
                 return true;
         return false;
     }
+
+    public boolean isCoin(Position position) {
+        for (Coin coin : coins)
+            if (coin.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
+    public boolean isSuperCoin(Position position) {
+        for (SupCoin supercoin : supercoins)
+            if (supercoin.getPosition().equals(position))
+                return true;
+        return false;
+    }
 }

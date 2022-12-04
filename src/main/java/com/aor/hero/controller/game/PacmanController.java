@@ -28,6 +28,12 @@ public class PacmanController extends GameController {
         if (getModel().isEmpty(position)) {
             getModel().getPacman().setPosition(position);
             if (getModel().isMonster(position)) getModel().getPacman().diminuirVidas();
+            else if(getModel().isCoin(position)){
+                getModel().getPacman().aumentarpontoscoin();
+            }
+            else if(getModel().isSuperCoin(position)){
+                getModel().getPacman().aumentarpontossupercoin();
+            }
         }
     }
 

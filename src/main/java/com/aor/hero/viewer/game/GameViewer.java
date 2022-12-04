@@ -21,7 +21,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui, getModel().getCoins(), new CoinViewer());
         drawElements(gui, getModel().getSuperCoins(), new SuperCoinViewer());
         gui.drawText(new Position(0, 0), "Vidas: " + getModel().getPacman().getVidas(), "#FFD700");
-        gui.drawText(new Position(12, 0), "Pontos: " + getModel().getPacman().getVidas(), "#FFD700");
+        gui.drawText(new Position(10, 0), "Pontos: " + getModel().getPacman().getPontos(), "#FFD700");
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
