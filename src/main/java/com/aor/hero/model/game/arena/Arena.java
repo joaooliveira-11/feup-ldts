@@ -55,6 +55,22 @@ public class Arena {
         this.walls = walls;
     }
 
+    public List<Coin> getCoins() {
+        return coins;
+    }
+
+    public void setCoins(List<Coin> coins1) {
+        this.coins = coins1;
+    }
+
+    public List<SupCoin> getSuperCoins() {
+        return supercoins;
+    }
+
+    public void setSuperCoins(List<SupCoin> supercoins1) {
+        this.supercoins = supercoins1;
+    }
+
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))

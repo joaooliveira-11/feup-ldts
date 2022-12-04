@@ -18,8 +18,10 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElements(gui, getModel().getMonsters(), new MonsterViewer());
         drawElement(gui, getModel().getPacman(), new HeroViewer());
-
+        drawElements(gui, getModel().getCoins(), new CoinViewer());
+        drawElements(gui, getModel().getSuperCoins(), new SuperCoinViewer());
         gui.drawText(new Position(0, 0), "Vidas: " + getModel().getPacman().getVidas(), "#FFD700");
+        gui.drawText(new Position(12, 0), "Pontos: " + getModel().getPacman().getVidas(), "#FFD700");
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

@@ -1,8 +1,6 @@
 package com.aor.hero.model.game.arena;
 
-import com.aor.hero.model.game.elements.Pacman;
-import com.aor.hero.model.game.elements.Monster;
-import com.aor.hero.model.game.elements.Wall;
+import com.aor.hero.model.game.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,5 +61,38 @@ public class RandomArenaBuilder extends ArenaBuilder {
     @Override
     protected Pacman createPacman() {
         return new Pacman(width / 2, height / 2);
+    }
+
+    @Override
+    protected List<Coin> createCoins() {
+        List<Coin> coins = new ArrayList<>();
+
+        for (int x = 0; x < width; x++) {
+            coins.add(new Coin(x, 0));
+            coins.add(new Coin(x, height - 1));
+        }
+
+        for (int y = 1; y < height - 1; y++) {
+            coins.add(new Coin(0, y));
+            coins.add(new Coin(width - 1, y));
+        }
+
+        return coins;
+    }
+    @Override
+    protected List<SupCoin> createSupCoins() {
+        List<SupCoin> supercoins = new ArrayList<>();
+
+        for (int x = 0; x < width; x++) {
+            supercoins.add(new SupCoin(x, 0));
+            supercoins.add(new SupCoin(x, height - 1));
+        }
+
+        for (int y = 1; y < height - 1; y++) {
+            supercoins.add(new SupCoin(0, y));
+            supercoins.add(new SupCoin(width - 1, y));
+        }
+
+        return supercoins;
     }
 }

@@ -11,6 +11,8 @@ public abstract class ArenaBuilder {
         arena.setPacman(createPacman());
         arena.setMonsters(createMonsters());
         arena.setWalls(createWalls());
+        arena.setCoins(createCoins());
+        arena.setSuperCoins(createSupCoins());
 
         return arena;
     }
@@ -23,9 +25,9 @@ public abstract class ArenaBuilder {
 
     protected abstract List<Monster> createMonsters();
 
-    //protected abstract List<Coin> createCoins();
+    protected abstract List<Coin> createCoins();
 
-    //protected abstract List<SupCoin> createSupCoins();
+    protected abstract List<SupCoin> createSupCoins();
 
     protected abstract Pacman createPacman();
 }
