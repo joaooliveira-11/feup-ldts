@@ -59,6 +59,13 @@ public class Arena {
         return coins;
     }
 
+    public Coin getCoin(Position position){
+        for(Coin coin:coins){
+            if(coin.getPosition().equals(position)) return coin;
+        }
+        return null;
+    }
+
     public void setCoins(List<Coin> coins1) {
         this.coins = coins1;
     }

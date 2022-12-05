@@ -4,6 +4,7 @@ import com.aor.hero.Game;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
+import com.aor.hero.model.game.elements.Coin;
 
 public class PacmanController extends GameController {
     public PacmanController(Arena arena) {
@@ -30,6 +31,7 @@ public class PacmanController extends GameController {
             if (getModel().isMonster(position)) getModel().getPacman().diminuirVidas();
             else if(getModel().isCoin(position)){
                 getModel().getPacman().aumentarpontoscoin();
+                getModel().getCoins().remove(getModel().getCoin(position));
             }
             else if(getModel().isSuperCoin(position)){
                 getModel().getPacman().aumentarpontossupercoin();
