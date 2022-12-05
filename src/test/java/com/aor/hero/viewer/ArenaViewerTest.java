@@ -3,9 +3,7 @@ package com.aor.hero.viewer;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
-import com.aor.hero.model.game.elements.Pacman;
-import com.aor.hero.model.game.elements.Monster;
-import com.aor.hero.model.game.elements.Wall;
+import com.aor.hero.model.game.elements.*;
 import com.aor.hero.viewer.game.GameViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,6 +26,9 @@ class ArenaViewerTest {
         arena.setWalls(Arrays.asList(new Wall(1, 2), new Wall(2, 3), new Wall(3, 4)));
         arena.setMonsters(Arrays.asList(new Monster(4, 5), new Monster(5, 6)));
         arena.setPacman(new Pacman(5, 8));
+
+        arena.setCoins(Arrays.asList(new Coin(7,8), new Coin(9, 8), new Coin(10, 8)));
+        arena.setSuperCoins(Arrays.asList(new SupCoin(7,9), new SupCoin(8, 9), new SupCoin(9, 9)));
     }
 
 
@@ -64,5 +65,25 @@ class ArenaViewerTest {
 
         Mockito.verify(gui, Mockito.times(1)).clear();
         Mockito.verify(gui, Mockito.times(1)).refresh();
+    }
+
+    @Test
+    void drawCoins() throws IOException {
+        viewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawCoin(new Position(7, 8));
+        Mockito.verify(gui, Mockito.times(1)).drawCoin(new Position(9, 8));
+        Mockito.verify(gui, Mockito.times(1)).drawCoin(new Position(10, 8));
+        Mockito.verify(gui, Mockito.times(3)).drawCoin(Mockito.any(Position.class));
+    }
+
+    @Test
+    void drawSuperCoins() throws IOException {
+        viewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(7, 9));
+        Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(8, 9));
+        Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(9, 9));
+        Mockito.verify(gui, Mockito.times(3)).drawSupCoin(Mockito.any(Position.class));
     }
 }
