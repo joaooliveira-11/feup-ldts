@@ -2,6 +2,7 @@ package com.aor.hero.model;
 
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,4 +32,5 @@ class PositionTest {
         assertEquals(x, new Position(x, y).getDown().getX());
         assertEquals(y + 1, new Position(x, y).getDown().getY());
     }
+
 }

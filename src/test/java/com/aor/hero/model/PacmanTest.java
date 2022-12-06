@@ -24,6 +24,7 @@ public class PacmanTest {
     @Test
     void Pacman_getPontos(){
         Assertions.assertNotNull(pacman.getPontos());
+        Assertions.assertEquals(0,pacman.getPontos());
     }
 
     @Test
@@ -45,6 +46,41 @@ public class PacmanTest {
         pacman.diminuirVidas();
         Assertions.assertEquals(2,pacman.getVidas());
         Assertions.assertNotEquals(3,pacman.getVidas());
+    }
+
+    @Test
+    void Pacman_winPower(){
+        Assertions.assertNotEquals(1,pacman.getPower());
+        pacman.winpower();
+        Assertions.assertEquals(1,pacman.getPower());
+    }
+
+    @Test
+    void Pacman_losePower(){
+        pacman.winpower();
+        Assertions.assertNotEquals(0,pacman.getPower());
+        pacman.losepower();
+        Assertions.assertEquals(0,pacman.getPower());
+    }
+
+    @Test
+    void Pacman_getPower(){
+        Assertions.assertNotNull(pacman.getPower());
+        Assertions.assertEquals(0,pacman.getPower());
+        pacman.winpower();
+        Assertions.assertEquals(1,pacman.getPower());
+    }
+    @Test
+    void Pacman_getPowerTime(){
+        pacman.startPowerTime();
+        Assertions.assertNotNull(pacman.getPowerTime());
+    }
+
+    @Test
+    void Pacman_didTimeEnd(){
+        pacman.startPowerTime();
+        Assertions.assertNotNull(pacman.didTimeEnd());
+        Assertions.assertEquals(false,pacman.didTimeEnd());
     }
 
 }

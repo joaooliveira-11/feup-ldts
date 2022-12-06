@@ -7,13 +7,14 @@ public class Pacman extends Element {
 
     private int power;
 
-    long PowerTime = 0;
+    private long PowerTime;
 
     public Pacman(int x, int y) {
         super(x, y);
         this.vidas = 3;
         this.pontos = 0;
         this.power = 0;
+        this.PowerTime = 0;
     }
 
     public void diminuirVidas() {
@@ -44,6 +45,10 @@ public class Pacman extends Element {
 
     public int getPower() {
         return power;
+    }
+
+    public long getPowerTime() {
+        return PowerTime;
     }
 
     public void startPowerTime(){

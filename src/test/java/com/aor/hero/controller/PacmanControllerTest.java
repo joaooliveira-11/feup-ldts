@@ -27,7 +27,8 @@ class PacmanControllerTest {
 
         arena.setWalls(Arrays.asList());
         arena.setMonsters(Arrays.asList());
-
+        arena.setCoins(Arrays.asList());
+        arena.setSuperCoins(Arrays.asList());
         controller = new PacmanController(arena);
     }
 
