@@ -66,6 +66,20 @@ public class Arena {
         return null;
     }
 
+    public SupCoin getSuperCoin(Position position){
+        for(SupCoin supercoin:supercoins){
+            if(supercoin.getPosition().equals(position)) return supercoin;
+        }
+        return null;
+    }
+
+    public Monster getMonster(Position position){
+        for(Monster monster:monsters){
+            if(monster.getPosition().equals(position)) return monster;
+        }
+        return null;
+    }
+
     public void setCoins(List<Coin> coins1) {
         this.coins = coins1;
     }

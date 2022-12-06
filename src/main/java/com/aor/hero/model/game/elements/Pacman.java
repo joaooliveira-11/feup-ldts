@@ -5,10 +5,15 @@ public class Pacman extends Element {
 
     private int pontos;
 
+    private int power;
+
+    long PowerTime = 0;
+
     public Pacman(int x, int y) {
         super(x, y);
         this.vidas = 3;
         this.pontos = 0;
+        this.power = 0;
     }
 
     public void diminuirVidas() {
@@ -29,5 +34,23 @@ public class Pacman extends Element {
 
     public void aumentarpontossupercoin() {
         this.pontos += 50;
+    }
+
+    public void winpower(){
+        this.power = 1;
+    }
+
+    public void losepower(){this.power = 0;}
+
+    public int getPower() {
+        return power;
+    }
+
+    public void startPowerTime(){
+        this.PowerTime = System.currentTimeMillis();
+    }
+
+    public boolean didTimeEnd(){
+        return System.currentTimeMillis() - PowerTime >= 5000;
     }
 }

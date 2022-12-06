@@ -9,7 +9,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class Game {
+public class
+Game {
     private final LanternaGUI gui;
     private State state;
 

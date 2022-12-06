@@ -28,13 +28,26 @@ public class PacmanController extends GameController {
     private void movePacman(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getPacman().setPosition(position);
-            if (getModel().isMonster(position)) getModel().getPacman().diminuirVidas();
+            if (getModel().isMonster(position)){
+                if(getModel().getPacman().getPower() == 0 ||getModel().getPacman().didTimeEnd()){
+                    getModel().getPacman().losepower();
+                    getModel().getPacman().diminuirVidas();
+                }
+                else{
+                    getModel().getMonsters().remove(getModel().getMonster(position));
+                    //falta voltar a adicionar
+                }
+
+            }
             else if(getModel().isCoin(position)){
                 getModel().getPacman().aumentarpontoscoin();
                 getModel().getCoins().remove(getModel().getCoin(position));
             }
             else if(getModel().isSuperCoin(position)){
                 getModel().getPacman().aumentarpontossupercoin();
+                getModel().getPacman().winpower();
+                getModel().getPacman().startPowerTime();
+                getModel().getSuperCoins().remove(getModel().getSuperCoin(position));
             }
         }
     }

@@ -83,7 +83,7 @@ class ArenaViewerTest {
 
         Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(7, 9));
         Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(8, 9));
-        Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(9, 9));
+        Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(9, 9 ));
         Mockito.verify(gui, Mockito.times(3)).drawSupCoin(Mockito.any(Position.class));
     }
 }
