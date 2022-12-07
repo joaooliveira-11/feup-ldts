@@ -4,13 +4,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Menu {
-    private final List<String> entries;
+    private List<String> entries;
     private int currentEntry = 0;
 
     public Menu() {
         this.entries = Arrays.asList("Start Game", "Instructions", "Exit");
     }
 
+    public void setMenuToGameOverMenu(){
+        this.entries = Arrays.asList("Play again", "Exit");
+    }
+
+    public boolean isGameOver() {
+        return entries.equals(Arrays.asList("Play again", "Exit"));
+    }
     public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)
@@ -32,7 +39,8 @@ public class Menu {
     }
 
     public boolean isSelectedExit() {
-        return isSelected(1);
+
+        return isGameOver() ? isSelected(1) : isSelected(2);
     }
 
     public boolean isSelectedStart() {
@@ -43,3 +51,4 @@ public class Menu {
         return this.entries.size();
     }
 }
+

@@ -20,8 +20,11 @@ public class ArenaController extends GameController {
     }
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getPacman().getVidas() == 0)
-            game.setState(new MenuState(new Menu()));
+        if (action == GUI.ACTION.QUIT || getModel().getPacman().getVidas() == 0) {
+            Menu menu = new Menu();
+            menu.setMenuToGameOverMenu();
+            game.setState(new MenuState(menu));
+        }
         else {
             pacmanController.step(game, action, time);
             monsterController.step(game, action, time);

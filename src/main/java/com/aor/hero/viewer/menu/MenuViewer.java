@@ -12,7 +12,11 @@ public class MenuViewer extends Viewer<Menu> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Menu", "#FFFFFF");
+        if(!getModel().isGameOver())
+            gui.drawText(new Position(5, 5), "Menu", "#FFFFFF");
+        else{
+            gui.drawText(new Position(1, 5), "Gamer Over, you lost!", "#FFFFFF");
+        }
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
