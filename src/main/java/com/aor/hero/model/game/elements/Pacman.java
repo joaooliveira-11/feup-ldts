@@ -37,6 +37,10 @@ public class Pacman extends Element {
         this.pontos += 50;
     }
 
+    public void setPontos(int pontos1){this.pontos = pontos1;}
+
+    public void setVidas(int vidas1){this.vidas = vidas1;}
+
     public void winpower(){
         this.power = 1;
     }

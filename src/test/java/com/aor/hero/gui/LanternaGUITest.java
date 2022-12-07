@@ -35,9 +35,11 @@ class LanternaGUITest {
     @Test
     void drawWall() {
         gui.drawWall(new Position(1, 1));
-
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(51, 51, 255));
-        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "P");
+        // 255 255 255
+        // 0 0 204
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 255, 255));
+        Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 204));
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, " ");
     }
 
     @Test
