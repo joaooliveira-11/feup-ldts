@@ -14,7 +14,7 @@ public class ArenaIsClosedTest {
     @Property
     void allArenasAreClosed(@ForAll @IntRange(min = 3, max = 50) int width, @ForAll @IntRange(min = 3, max = 50) int height, @ForAll List<GUI.@From("moveActions") ACTION> actions) {
         RandomArenaBuilder rab = new RandomArenaBuilder(width, height, 0);
-        Arena arena = rab.createArena();
+        Arena arena = rab.createArena(3,0);
         PacmanController controller = new PacmanController(arena);
 
         for (GUI.ACTION action : actions) {

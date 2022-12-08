@@ -27,12 +27,10 @@ public class ArenaController extends GameController {
             menu.setMenuToGameOverMenu();
             game.setState(new MenuState(menu));
         }
-        else if(getModel().getSuperCoins().size() == 0 && getModel().getCoins().size() == 0){
+        else if(getModel().getSuperCoins().size() == 0 && getModel().getCoins().size() == 0 && getModel().getPacman().getVidas() >= 1){
             int savepontos  = getModel().getPacman().getPontos();
             int savevidas  =  getModel().getPacman().getVidas();
-            game.setState(new GameState(new LoaderArenaBuilder(2).createArena()));
-            getModel().getPacman().setPontos(savepontos);
-            getModel().getPacman().setVidas(savevidas);
+            game.setState(new GameState(new LoaderArenaBuilder(2).createArena(savevidas, savepontos)));
         }
         else {
             pacmanController.step(game, action, time);
