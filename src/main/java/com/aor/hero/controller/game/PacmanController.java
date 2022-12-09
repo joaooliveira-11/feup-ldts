@@ -7,6 +7,7 @@ import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Coin;
 
 public class PacmanController extends GameController {
+    String direction;
     public PacmanController(Arena arena) {
         super(arena);
     }
@@ -52,11 +53,20 @@ public class PacmanController extends GameController {
         }
     }
 
+    public void setdirection(String direction1) {
+        this.direction = direction1;
+    }
+
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (action == GUI.ACTION.UP) movePacmanUp();
-        if (action == GUI.ACTION.RIGHT) movePacmanRight();
-        if (action == GUI.ACTION.DOWN) movePacmanDown();
-        if (action == GUI.ACTION.LEFT) movePacmanLeft();
+        if (action == GUI.ACTION.UP) setdirection("up");
+        if (action == GUI.ACTION.RIGHT) setdirection("right");
+        if (action == GUI.ACTION.DOWN) setdirection("down");
+        if (action == GUI.ACTION.LEFT) setdirection("left");
+        if(direction == "up") movePacmanUp();
+        if(direction == "down") movePacmanDown();
+        if(direction == "right") movePacmanRight();
+        if(direction == "left") movePacmanLeft();
     }
+
 }
