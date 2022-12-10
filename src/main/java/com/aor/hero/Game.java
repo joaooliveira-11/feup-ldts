@@ -4,6 +4,7 @@ import com.aor.hero.gui.LanternaGUI;
 import com.aor.hero.model.menu.Menu;
 import com.aor.hero.states.MenuState;
 import com.aor.hero.states.State;
+import com.aor.hero.viewer.Music;
 
 import java.awt.*;
 import java.io.IOException;
@@ -14,9 +15,12 @@ Game {
     private final LanternaGUI gui;
     private State state;
 
+    private Music music;
+
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(22, 22);
         this.state = new MenuState(new Menu());
+        this.music = new Music();
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

@@ -4,10 +4,12 @@ import com.aor.hero.Game;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
-import com.aor.hero.model.game.elements.Coin;
+import com.aor.hero.viewer.Music;
 
 public class PacmanController extends GameController {
     String direction;
+
+    Music music = new Music();
     public PacmanController(Arena arena) {
         super(arena);
     }
@@ -33,9 +35,11 @@ public class PacmanController extends GameController {
                 if(getModel().getPacman().getPower() == 0 ||getModel().getPacman().didTimeEnd()){
                     getModel().getPacman().losepower();
                     getModel().getPacman().diminuirVidas();
+                    music.startLoseLifeMusic();
                 }
                 else{
                     getModel().getMonsters().remove(getModel().getMonster(position));
+                    music.startKillMonsterMusic();
                     //falta voltar a adicionar
                 }
 
@@ -43,12 +47,14 @@ public class PacmanController extends GameController {
             else if(getModel().isCoin(position)){
                 getModel().getPacman().aumentarpontoscoin();
                 getModel().getCoins().remove(getModel().getCoin(position));
+                music.startCoinMusic();
             }
             else if(getModel().isSuperCoin(position)){
                 getModel().getPacman().aumentarpontossupercoin();
                 getModel().getPacman().winpower();
                 getModel().getPacman().startPowerTime();
                 getModel().getSuperCoins().remove(getModel().getSuperCoin(position));
+                music.startSuperCoinMusic();
             }
         }
     }
