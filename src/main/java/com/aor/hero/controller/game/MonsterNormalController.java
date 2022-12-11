@@ -1,6 +1,7 @@
 package com.aor.hero.controller.game;
 
 import com.aor.hero.Game;
+import com.aor.hero.controller.MonsterController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
@@ -8,10 +9,10 @@ import com.aor.hero.model.game.elements.Monster;
 
 import java.io.IOException;
 
-public class MonsterController extends GameController {
+public class MonsterNormalController extends GameController implements MonsterController<Monster> {
     private long lastMovement;
 
-    public MonsterController(Arena arena) {
+    public MonsterNormalController(Arena arena) {
         super(arena);
 
         this.lastMovement = 0;
@@ -25,15 +26,12 @@ public class MonsterController extends GameController {
             this.lastMovement = time;
         }
     }
-
-    private void moveMonster(Monster monster, Position position) {
+    @Override
+    public void moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
             if (getModel().getPacman().getPosition().equals(position))
-                if(getModel().getPacman().getPower() == 0 || getModel().getPacman().didTimeEnd()){
-                    getModel().getPacman().losepower();
-                    getModel().getPacman().diminuirVidas();
-                }
+                getModel().getPacman().diminuirVidas();
+            }
         }
     }
-}

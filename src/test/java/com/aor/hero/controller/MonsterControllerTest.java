@@ -1,7 +1,7 @@
 package com.aor.hero.controller;
 
 import com.aor.hero.Game;
-import com.aor.hero.controller.game.MonsterController;
+import com.aor.hero.controller.game.MonsterNormalController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class MonsterControllerTest {
-    private MonsterController controller;
+    private MonsterNormalController controller;
     private Pacman pacman;
     private Arena arena;
     private Game game;
@@ -34,7 +34,7 @@ class MonsterControllerTest {
         arena.setWalls(Arrays.asList());
         arena.setMonsters(Arrays.asList());
 
-        controller = new MonsterController(arena);
+        controller = new MonsterNormalController(arena);
 
         game = Mockito.mock(Game.class);
     }
