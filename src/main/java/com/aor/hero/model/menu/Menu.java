@@ -11,13 +11,6 @@ public class Menu {
         this.entries = Arrays.asList("Start Game", "Instructions", "Exit");
     }
 
-    public void setMenuToGameOverMenu(){
-        this.entries = Arrays.asList("Play again", "Exit");
-    }
-
-    public boolean isGameOver() {
-        return entries.equals(Arrays.asList("Play again", "Exit"));
-    }
     public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)
@@ -40,12 +33,14 @@ public class Menu {
 
     public boolean isSelectedExit() {
 
-        return isGameOver() ? isSelected(1) : isSelected(2);
+        return isSelected(2);
     }
 
     public boolean isSelectedStart() {
         return isSelected(0);
     }
+
+    public boolean isSelectedInstructions(){ return isSelected(1);}
 
     public int getNumberEntries() {
         return this.entries.size();

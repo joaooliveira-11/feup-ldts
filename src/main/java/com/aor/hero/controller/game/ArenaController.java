@@ -4,8 +4,12 @@ import com.aor.hero.Game;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.arena.LoaderArenaBuilder;
+import com.aor.hero.model.menu.GameOver;
+import com.aor.hero.model.menu.GameWin;
 import com.aor.hero.model.menu.Menu;
+import com.aor.hero.states.GameOverState;
 import com.aor.hero.states.GameState;
+import com.aor.hero.states.GameWinState;
 import com.aor.hero.states.MenuState;
 
 import java.io.IOException;
@@ -23,9 +27,10 @@ public class ArenaController extends GameController {
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT || getModel().getPacman().getVidas() == 0) {
-            Menu menu = new Menu();
-            menu.setMenuToGameOverMenu();
-            game.setState(new MenuState(menu));
+            game.setState(new GameOverState(new GameOver()));
+        }
+        else if(getModel().getPacman().getPontos() > 2500 && getModel().getSuperCoins().size() == 0 && getModel().getCoins().size() == 0 && getModel().getPacman().getVidas() >= 1){
+            game.setState(new GameWinState(new GameWin()));
         }
         else if(getModel().getSuperCoins().size() == 0 && getModel().getCoins().size() == 0 && getModel().getPacman().getVidas() >= 1){
             int savepontos  = getModel().getPacman().getPontos();
