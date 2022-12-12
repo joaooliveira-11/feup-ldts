@@ -57,4 +57,12 @@ public class PacmanTest {
         Assertions.assertEquals(false,pacman.didTimeEnd());
     }
 
+    @Test
+    void Pacman_setTIME(){
+        pacman.setPowerTime(12);
+        Assertions.assertNotNull(pacman.didTimeEnd());
+        Assertions.assertNotEquals(14, pacman.getPowerTime());
+        Assertions.assertEquals(12, pacman.getPowerTime());
+    }
+
 }
