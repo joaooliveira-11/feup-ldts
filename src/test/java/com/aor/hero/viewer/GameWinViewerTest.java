@@ -19,7 +19,5 @@ public class GameWinViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(4, 5), "Congratulations Player", "#FFFFFF");
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(4, 6), "you passed all levels", "#FFFFFF");
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(4, 7), "with sucess", "#FFFFFF");
-
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(9, 10), "with sucess", "#FFFFFF");
     }
 }
