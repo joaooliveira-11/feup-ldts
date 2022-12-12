@@ -1,11 +1,12 @@
 package com.aor.hero.model.game.arena;
 
 import com.aor.hero.model.Position;
+import com.aor.hero.model.game.GameArena;
 import com.aor.hero.model.game.elements.*;
 
 import java.util.List;
 
-public class Arena {
+public class Arena implements GameArena {
     private final int width;
     private final int height;
 
@@ -141,5 +142,11 @@ public class Arena {
             if (gate.getPosition().equals(position))
                 return true;
         return false;
+    }
+    public List<Monster> switchToMonsters(List<Monster> monsters, List<MonsterRunning> monstersrunning) {
+        for (MonsterRunning monsterrunning : monstersrunning) {
+            monsters.add(new Monster(monsterrunning.getPosition().getX(), monsterrunning.getPosition().getY()));
+        }
+        return monsters;
     }
 }

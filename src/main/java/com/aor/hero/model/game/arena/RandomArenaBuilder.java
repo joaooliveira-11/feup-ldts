@@ -96,7 +96,6 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return supercoins;
     }
-    @Override
     protected List<Gate> createGates() {
         List<Gate> gates = new ArrayList<>();
 

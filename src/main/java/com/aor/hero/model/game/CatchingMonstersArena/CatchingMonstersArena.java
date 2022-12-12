@@ -20,6 +20,7 @@ public class CatchingMonstersArena implements GameArena {
     private List<Coin> coins;
 
     private List<SupCoin> supercoins;
+    private List<Gate> gates;
 
     CatchingMonstersArena(int width,int height){
         this.width=width;
@@ -90,6 +91,16 @@ public class CatchingMonstersArena implements GameArena {
     @Override
     public void setSuperCoins(List<SupCoin> supercoins1) {
         this.supercoins=supercoins1;
+    }
+
+    @Override
+    public List<Gate> getGates() {
+        return gates;
+    }
+
+    @Override
+    public void setGates(List<Gate> gates) {
+        this.gates=gates;
     }
 
     @Override
@@ -177,6 +188,12 @@ public class CatchingMonstersArena implements GameArena {
         }
         monsters.clear();
         return monstersrunning;
+    }
+    public boolean isGate(Position position) {
+        for (Gate gate : gates)
+            if (gate.getPosition().equals(position))
+                return true;
+        return false;
     }
 
 }

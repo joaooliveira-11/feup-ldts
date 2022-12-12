@@ -9,13 +9,14 @@ import java.util.List;
 public class CatchingMonstersArenaBuilder extends ArenaBuilder<CatchingMonstersArena> {
     CatchingMonstersArena arena = new CatchingMonstersArena(19, 22);
 
-    public CatchingMonstersArena createCatchingMonstersArena(int lifes,int pontos,Pacman pacman, List<Monster> monsters,List<MonsterRunning> monstersrunning,List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins ){
+    public CatchingMonstersArena createCatchingMonstersArena(int lifes,int pontos,Pacman pacman, List<Monster> monsters,List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins,List<Gate> gates ){
 
         arena.setPacman(pacman);
         arena.setMonstersRunning(arena.switchToMonstersRunning(monsters));
         arena.setWalls(walls);
         arena.setCoins(coins);
         arena.setSuperCoins(supercoins);
+        arena.setGates(gates);
         arena.getPacman().setVidas(lifes);
         arena.getPacman().setPontos(pontos);
 
@@ -54,5 +55,11 @@ public class CatchingMonstersArenaBuilder extends ArenaBuilder<CatchingMonstersA
     protected Pacman createPacman() {
         return null;
     }
+
+    @Override
+    protected List<Gate> createGates() {
+        return null;
+    }
+
 
 }

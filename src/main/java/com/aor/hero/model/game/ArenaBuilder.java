@@ -20,4 +20,5 @@ public abstract class ArenaBuilder<T> {
     protected abstract List<SupCoin> createSupCoins();
 
     protected abstract Pacman createPacman();
+    protected abstract List<Gate> createGates();
 }

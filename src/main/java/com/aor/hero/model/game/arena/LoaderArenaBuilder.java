@@ -19,13 +19,14 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
     public LoaderArenaBuilder() {
 
     }
-    public Arena createArena(int lifes, int pontos, Pacman pacman, List<Monster> monsters,List<MonsterRunning> monstersrunning, List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins ){
+    public Arena createArena(int lifes, int pontos, Pacman pacman, List<Monster> monsters,List<MonsterRunning> monstersrunning, List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins,List<Gate> gates ){
         arena = new Arena(19,22);
         arena.setPacman(pacman);
         arena.setMonsters(arena.switchToMonsters(monsters,monstersrunning));
         arena.setWalls(walls);
         arena.setCoins(coins);
         arena.setSuperCoins(supercoins);
+        arena.setGates(gates);
         arena.getPacman().setVidas(lifes);
         arena.getPacman().setPontos(pontos);
 
@@ -39,6 +40,7 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
         arena.setWalls(createWalls());
         arena.setCoins(createCoins());
         arena.setSuperCoins(createSupCoins());
+        arena.setGates(createGates());
         arena.getPacman().setPontos(pontos);
         arena.getPacman().setVidas(vidas);
         return arena;
@@ -132,6 +134,7 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
 
         return supercoins;
     }
+
 
     @Override
     protected List<Gate>createGates() {
