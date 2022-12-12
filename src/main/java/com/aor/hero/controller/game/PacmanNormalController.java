@@ -4,6 +4,7 @@ import com.aor.hero.Game;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
+import com.aor.hero.model.game.elements.Gate;
 import com.aor.hero.viewer.Music;
 
 public class PacmanNormalController extends GameController {
@@ -46,6 +47,14 @@ public class PacmanNormalController extends GameController {
                 getModel().getPacman().startPowerTime();
                 getModel().getSuperCoins().remove(getModel().getSuperCoin(position));
                 music.startSuperCoinMusic();
+            }
+            else if(getModel().isGate(position)){
+                for(Gate gate : getModel().getGates()){
+                    if(!gate.getPosition().equals(position)){
+                        Position position2 = new Position(gate.getPosition().getX(), gate.getPosition().getY());
+                        getModel().getPacman().setPosition(position2);
+                    }
+                }
             }
         }
     }
