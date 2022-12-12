@@ -16,7 +16,8 @@ public interface GUI {
     void drawCoin(Position position);
 
     void drawSupCoin(Position position);
-    void drawMonsterRunning(Position position);
+
+    void drawGate(Position position);
 
     void drawGate(Position position);
 

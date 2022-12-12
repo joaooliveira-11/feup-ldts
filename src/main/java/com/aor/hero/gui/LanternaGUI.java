@@ -113,11 +113,6 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawMonsterRunning(Position position) {
-        drawCharacter(position.getX(), position.getY(), '@', "#3366FF");
-    }
-
-    @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));

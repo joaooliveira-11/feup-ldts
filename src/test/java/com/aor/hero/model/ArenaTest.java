@@ -1,6 +1,7 @@
 package com.aor.hero.model;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Coin;
+import com.aor.hero.model.game.elements.Gate;
 import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.model.game.elements.SupCoin;
 import org.junit.jupiter.api.Assertions;
@@ -18,6 +19,7 @@ public class ArenaTest {
         arena.setCoins(Arrays.asList(new Coin(1, 2), new Coin(2, 3), new Coin(3, 4)));
         arena.setSuperCoins(Arrays.asList(new SupCoin(7, 7), new SupCoin(8, 8), new SupCoin(9, 9)));
         arena.setMonsters(Arrays.asList(new Monster(12, 12), new Monster(13, 13), new Monster(14, 14)));
+        arena.setGates(Arrays.asList(new Gate(15, 15), new Gate(16, 16)));
     }
 
     @Test
@@ -73,4 +75,25 @@ public class ArenaTest {
         Assertions.assertNotEquals(true, arena.isSuperCoin(position));
         Assertions.assertEquals(true, arena.isSuperCoin(position2));
     }
+
+    @Test
+    void Arena_getgates(){
+        Assertions.assertNotNull(arena.getGates());
+    }
+    @Test
+    void Arena_getGate(){
+        Position position = new Position(50,50);
+        Assertions.assertNull(arena.getGate(position));
+        Position position1 = new Position(15,15);
+        Assertions.assertNotNull(arena.getGate(position1));
+    }
+
+    @Test
+    void Arena_isGate(){
+        Position position = new Position(99,99);
+        Position position2 = new Position(15,15);
+        Assertions.assertNotEquals(true, arena.isGate(position));
+        Assertions.assertEquals(true, arena.isGate(position2));
+    }
+
 }

@@ -7,11 +7,11 @@ import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Gate;
 import com.aor.hero.viewer.Music;
 
-public class PacmanNormalController extends GameController {
+public class PacmanController extends GameController {
     String direction;
 
     Music music = new Music();
-    public PacmanNormalController(Arena arena) {
+    public PacmanController(Arena arena) {
         super(arena);
     }
     public void movePacmanLeft() {
@@ -34,8 +34,16 @@ public class PacmanNormalController extends GameController {
         if (getModel().isEmpty(position) && (!(position.equals(p)))) {
             getModel().getPacman().setPosition(position);
             if (getModel().isMonster(position)){
-                getModel().getPacman().diminuirVidas();
-                music.startLoseLifeMusic();
+                if(getModel().getPacman().getPower() == 0 ||getModel().getPacman().didTimeEnd()){
+                    getModel().getPacman().losepower();
+                    getModel().getPacman().diminuirVidas();
+                    music.startLoseLifeMusic();
+                }
+                else{
+                    getModel().getMonsters().remove(getModel().getMonster(position));
+                    music.startKillMonsterMusic();
+                    //falta voltar a adicionar
+                }
 
             }
             else if(getModel().isCoin(position)){
@@ -45,6 +53,7 @@ public class PacmanNormalController extends GameController {
             }
             else if(getModel().isSuperCoin(position)){
                 getModel().getPacman().aumentarpontossupercoin();
+                getModel().getPacman().winpower();
                 getModel().getPacman().startPowerTime();
                 getModel().getSuperCoins().remove(getModel().getSuperCoin(position));
                 music.startSuperCoinMusic();

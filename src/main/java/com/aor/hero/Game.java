@@ -18,7 +18,7 @@ Game {
     private Music music;
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(22, 22);
+        this.gui = new LanternaGUI(24, 24);
         this.state = new MenuState(new Menu());
         this.music = new Music();
     }

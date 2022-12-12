@@ -4,7 +4,6 @@ import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Element;
-import com.aor.hero.viewer.CatchingMonsters.MonsterRunningViewer;
 import com.aor.hero.viewer.Viewer;
 
 import java.util.List;
