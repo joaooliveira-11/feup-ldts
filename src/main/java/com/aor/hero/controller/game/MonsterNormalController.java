@@ -7,18 +7,16 @@ import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Monster;
 
 import java.io.IOException;
-import java.util.ConcurrentModificationException;
 
-public class MonsterController extends GameController {
+public class MonsterNormalController extends GameController {
     private long lastMovement;
 
-    public MonsterController(Arena arena) {
+    public MonsterNormalController(Arena arena) {
         super(arena);
 
         this.lastMovement = 0;
     }
 
-    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 500) {
             for (Monster monster : getModel().getMonsters())
@@ -26,15 +24,11 @@ public class MonsterController extends GameController {
             this.lastMovement = time;
         }
     }
-
-    private void moveMonster(Monster monster, Position position) {
+    public void moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
             if (getModel().getPacman().getPosition().equals(position))
-                if(getModel().getPacman().getPower() == 0 || getModel().getPacman().didTimeEnd()){
-                    getModel().getPacman().losepower();
-                    getModel().getPacman().diminuirVidas();
-                }
+                getModel().getPacman().diminuirVidas();
+            }
         }
     }
-}

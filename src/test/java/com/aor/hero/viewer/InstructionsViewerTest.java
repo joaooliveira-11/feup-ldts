@@ -2,9 +2,7 @@ package com.aor.hero.viewer;
 
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
-import com.aor.hero.model.menu.GameOver;
 import com.aor.hero.model.menu.Instructions;
-import com.aor.hero.viewer.menu.GameOverViewer;
 import com.aor.hero.viewer.menu.InstructionsViewer;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

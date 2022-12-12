@@ -1,7 +1,6 @@
 package com.aor.hero.controller.CatchingMonsters;
 
 import com.aor.hero.Game;
-import com.aor.hero.controller.MonsterController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArena;
@@ -11,7 +10,7 @@ import com.aor.hero.model.game.elements.MonsterRunning;
 import java.io.IOException;
 import java.util.ConcurrentModificationException;
 
-public class MonstersRunningController extends GameController implements MonsterController<MonsterRunning> {
+public class MonstersRunningController extends GameController {
 
     private long lastMovement;
 
@@ -21,7 +20,6 @@ public class MonstersRunningController extends GameController implements Monster
         this.lastMovement=0;
     }
 
-    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 500) {
             this.lastMovement = time;
@@ -40,7 +38,6 @@ public class MonstersRunningController extends GameController implements Monster
         }
     }
 
-    @Override
     public void moveMonster(MonsterRunning monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);

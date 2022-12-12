@@ -1,8 +1,6 @@
 package com.aor.hero.State;
 
-import com.aor.hero.model.menu.GameOver;
 import com.aor.hero.model.menu.Menu;
-import com.aor.hero.states.GameOverState;
 import com.aor.hero.states.MenuState;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

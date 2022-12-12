@@ -1,7 +1,5 @@
 package com.aor.hero.controller;
 
-import com.aor.hero.controller.game.PacmanController;
-import com.aor.hero.controller.game.PacmanController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.arena.RandomArenaBuilder;

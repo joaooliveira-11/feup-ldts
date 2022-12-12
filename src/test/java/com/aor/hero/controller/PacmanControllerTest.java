@@ -1,7 +1,5 @@
 package com.aor.hero.controller;
 
-import com.aor.hero.controller.game.PacmanController;
-import com.aor.hero.controller.game.PacmanController;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Pacman;
@@ -29,7 +27,6 @@ class PacmanControllerTest {
         arena.setMonsters(Arrays.asList());
         arena.setCoins(Arrays.asList());
         arena.setSuperCoins(Arrays.asList());
-        arena.setGates(Arrays.asList());
         controller = new PacmanController(arena);
     }
 

@@ -5,7 +5,6 @@ import com.aor.hero.controller.menu.GameOverController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.menu.GameOver;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

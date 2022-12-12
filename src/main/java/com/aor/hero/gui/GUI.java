@@ -19,7 +19,7 @@ public interface GUI {
 
     void drawGate(Position position);
 
-    void drawGate(Position position);
+    void drawMonsterRunning(Position position);
 
     void drawText(Position position, String text, String color);
 

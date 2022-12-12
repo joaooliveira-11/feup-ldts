@@ -1,7 +1,6 @@
 package com.aor.hero.controller.game;
 
 import com.aor.hero.Game;
-import com.aor.hero.controller.MonsterController;
 import com.aor.hero.controller.PacmanController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArenaBuilder;

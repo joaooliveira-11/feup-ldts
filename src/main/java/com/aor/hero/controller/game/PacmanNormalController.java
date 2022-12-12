@@ -5,13 +5,13 @@ import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Gate;
+import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.viewer.Music;
 
-public class PacmanController extends GameController {
+public class PacmanNormalController extends GameController {
+    Music music=new Music();
     String direction;
-
-    Music music = new Music();
-    public PacmanController(Arena arena) {
+    public PacmanNormalController(Arena arena) {
         super(arena);
     }
     public void movePacmanLeft() {
@@ -33,34 +33,21 @@ public class PacmanController extends GameController {
         Position p = new Position(9,8);
         if (getModel().isEmpty(position) && (!(position.equals(p)))) {
             getModel().getPacman().setPosition(position);
-            if (getModel().isMonster(position)){
-                if(getModel().getPacman().getPower() == 0 ||getModel().getPacman().didTimeEnd()){
-                    getModel().getPacman().losepower();
-                    getModel().getPacman().diminuirVidas();
-                    music.startLoseLifeMusic();
-                }
-                else{
-                    getModel().getMonsters().remove(getModel().getMonster(position));
-                    music.startKillMonsterMusic();
-                    //falta voltar a adicionar
-                }
-
-            }
-            else if(getModel().isCoin(position)){
+            if (getModel().isMonster(position)) {
+                getModel().getPacman().diminuirVidas();
+                music.startLoseLifeMusic();
+            } else if (getModel().isCoin(position)) {
                 getModel().getPacman().aumentarpontoscoin();
                 getModel().getCoins().remove(getModel().getCoin(position));
                 music.startCoinMusic();
-            }
-            else if(getModel().isSuperCoin(position)){
+            } else if (getModel().isSuperCoin(position)) {
                 getModel().getPacman().aumentarpontossupercoin();
-                getModel().getPacman().winpower();
-                getModel().getPacman().startPowerTime();
+                getModel().getPacman().setPowerTime(getModel().getPacman().getPowerTime() + System.currentTimeMillis());
                 getModel().getSuperCoins().remove(getModel().getSuperCoin(position));
                 music.startSuperCoinMusic();
-            }
-            else if(getModel().isGate(position)){
-                for(Gate gate : getModel().getGates()){
-                    if(!gate.getPosition().equals(position)){
+            } else if (getModel().isGate(position)) {
+                for (Gate gate : getModel().getGates()) {
+                    if (!gate.getPosition().equals(position)) {
                         Position position2 = new Position(gate.getPosition().getX(), gate.getPosition().getY());
                         getModel().getPacman().setPosition(position2);
                     }
