@@ -54,7 +54,7 @@ public class LanternaGUI implements GUI {
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        URL resource = getClass().getClassLoader().getResource("fonts/Square-Regular.otf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -85,7 +85,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawPacman(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#FFD700");
+        drawCharacter(position.getX(), position.getY(), '<', "#FFD700");
     }
 
     @Override
@@ -110,11 +110,11 @@ public class LanternaGUI implements GUI {
     }
 
     public void drawCoin(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'o', "#DAA520");
+        drawCharacter(position.getX(), position.getY(), '*', "#DAA520");
     }
 
     public void drawSupCoin(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'O', "#DAA520");
+        drawCharacter(position.getX(), position.getY(), '+', "#DAA520");
     }
 
     @Override
