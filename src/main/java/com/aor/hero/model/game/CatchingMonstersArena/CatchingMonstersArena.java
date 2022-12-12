@@ -169,7 +169,9 @@ public class CatchingMonstersArena implements GameArena {
     }
 
     public List<MonsterRunning> switchToMonstersRunning(List<Monster> monsters){
-        monstersrunning = new ArrayList<MonsterRunning>();
+        if(monstersrunning==null){
+            monstersrunning=new ArrayList<>();
+        }
         for (Monster monster: monsters){
             monstersrunning.add(new MonsterRunning(monster.getPosition().getX(),monster.getPosition().getY()));
         }

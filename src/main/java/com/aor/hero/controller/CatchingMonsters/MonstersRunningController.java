@@ -9,6 +9,7 @@ import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.model.game.elements.MonsterRunning;
 
 import java.io.IOException;
+import java.util.ConcurrentModificationException;
 
 public class MonstersRunningController extends GameController implements MonsterController<MonsterRunning> {
 
@@ -29,11 +30,13 @@ public class MonstersRunningController extends GameController implements Monster
                     moveMonster(monster, monster.getPosition().getRandomNeighbour());
             }
             catch (NullPointerException e){}
+            catch (ConcurrentModificationException f){}
             try {
                 for (Monster monster : getModel().getMonsters())
                     moveMonster(monster, monster.getPosition().getRandomNeighbour());
             }
             catch (NullPointerException e){}
+            catch (ConcurrentModificationException f){}
         }
     }
 

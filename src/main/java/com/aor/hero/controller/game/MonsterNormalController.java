@@ -8,6 +8,7 @@ import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Monster;
 
 import java.io.IOException;
+import java.util.ConcurrentModificationException;
 
 public class MonsterNormalController extends GameController implements MonsterController<Monster> {
     private long lastMovement;

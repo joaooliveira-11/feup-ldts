@@ -5,15 +5,13 @@ import com.aor.hero.controller.Controller;
 import com.aor.hero.controller.CatchingMonsters.GameController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArena;
+import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArenaBuilder;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.arena.LoaderArenaBuilder;
 import com.aor.hero.model.menu.GameOver;
 import com.aor.hero.model.menu.GameWin;
 import com.aor.hero.model.menu.Menu;
-import com.aor.hero.states.GameOverState;
-import com.aor.hero.states.GameState;
-import com.aor.hero.states.GameWinState;
-import com.aor.hero.states.MenuState;
+import com.aor.hero.states.*;
 import com.aor.hero.viewer.CatchingMonsters.CatchingMonstersViewer;
 
 import java.io.IOException;
@@ -30,6 +28,7 @@ public class CatchingMonstersController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        long time_left =System.currentTimeMillis();
         int savevidas = getModel().getPacman().getVidas();
         int savepontos = getModel().getPacman().getPontos();
         if (action == GUI.ACTION.QUIT || getModel().getPacman().getVidas() == 0)
@@ -43,6 +42,10 @@ public class CatchingMonstersController extends GameController {
         else if(getModel().getPacman().didTimeEnd()){
             game.setState(new GameState(new LoaderArenaBuilder(1).createArena(savevidas,savepontos,getModel().getPacman(),getModel().getMonsters(),getModel().getMonstersRunning(),getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins())));
             getModel().getPacman().setPowerTime(0);
+        }
+        else if(getModel().getPacman().getPowerTime()>=time_left){
+            getModel().setMonstersRunning(getModel().switchToMonstersRunning(getModel().getMonsters()));
+            getModel().getPacman().setPowerTime(System.currentTimeMillis());
         }
         else {
             pacmanController.step(game, action, time);

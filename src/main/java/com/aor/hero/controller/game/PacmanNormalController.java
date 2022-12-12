@@ -30,7 +30,8 @@ public class PacmanNormalController extends GameController {
         movePacman(getModel().getPacman().getPosition().getDown());
     }
     private void movePacman(Position position) {
-        if (getModel().isEmpty(position)) {
+        Position p = new Position(9,8);
+        if (getModel().isEmpty(position) && (!(position.equals(p)))) {
             getModel().getPacman().setPosition(position);
             if (getModel().isMonster(position)){
                 getModel().getPacman().diminuirVidas();

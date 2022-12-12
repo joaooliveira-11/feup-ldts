@@ -1,5 +1,6 @@
 package com.aor.hero.controller;
 
+import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 
 public interface PacmanController {
