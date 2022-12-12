@@ -12,6 +12,7 @@ public abstract class ArenaBuilder {
         arena.setWalls(createWalls());
         arena.setCoins(createCoins());
         arena.setSuperCoins(createSupCoins());
+        arena.setGates(createGates());
         arena.getPacman().setPontos(pontos);
         arena.getPacman().setVidas(vidas);
         return arena;
@@ -28,6 +29,8 @@ public abstract class ArenaBuilder {
     protected abstract List<Coin> createCoins();
 
     protected abstract List<SupCoin> createSupCoins();
+
+    protected abstract List<Gate> createGates();
 
     protected abstract Pacman createPacman();
 }

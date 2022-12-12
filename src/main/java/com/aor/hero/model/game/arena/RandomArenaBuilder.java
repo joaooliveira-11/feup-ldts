@@ -95,4 +95,20 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return supercoins;
     }
+    @Override
+    protected List<Gate> createGates() {
+        List<Gate> gates = new ArrayList<>();
+
+        for (int x = 0; x < width; x++) {
+            gates.add(new Gate(x, 0));
+            gates.add(new Gate(x, height - 1));
+        }
+
+        for (int y = 1; y < height - 1; y++) {
+            gates.add(new Gate(0, y));
+            gates.add(new Gate(width - 1, y));
+        }
+
+        return gates;
+    }
 }

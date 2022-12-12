@@ -12,12 +12,12 @@ public class MenuStateTest {
     Menu menu_to_set;
 
     @Test
-    void GameOverState_beforeSetstate(){
+    void MenuState_beforeSetstate(){
         Assertions.assertNull(menustate);
     }
 
     @Test
-    void GameOverState_afterSetstate(){
+    void MenuState_afterSetstate(){
         menustate = new MenuState(menu_to_set);
         Assertions.assertNotNull(menustate);
         Assertions.assertEquals(menu_to_set, menustate.getModel());

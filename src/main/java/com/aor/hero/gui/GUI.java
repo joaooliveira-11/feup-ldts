@@ -17,6 +17,8 @@ public interface GUI {
 
     void drawSupCoin(Position position);
 
+    void drawGate(Position position);
+
     void drawText(Position position, String text, String color);
 
     void clear();

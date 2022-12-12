@@ -18,6 +18,8 @@ public class Arena {
 
     private List<SupCoin> supercoins;
 
+    private List<Gate> gates;
+
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
@@ -59,6 +61,14 @@ public class Arena {
         return coins;
     }
 
+    public List<Gate> getGates() {
+        return gates;
+    }
+
+    public void setGates(List<Gate> gates1) {
+        this.gates = gates1;
+    }
+
     public Coin getCoin(Position position){
         for(Coin coin:coins){
             if(coin.getPosition().equals(position)) return coin;
@@ -76,6 +86,13 @@ public class Arena {
     public Monster getMonster(Position position){
         for(Monster monster:monsters){
             if(monster.getPosition().equals(position)) return monster;
+        }
+        return null;
+    }
+
+    public Gate getGate(Position position){
+        for(Gate gate:gates){
+            if(gate.getPosition().equals(position)) return gate;
         }
         return null;
     }
@@ -116,6 +133,12 @@ public class Arena {
     public boolean isSuperCoin(Position position) {
         for (SupCoin supercoin : supercoins)
             if (supercoin.getPosition().equals(position))
+                return true;
+        return false;
+    }
+    public boolean isGate(Position position) {
+        for (Gate gate : gates)
+            if (gate.getPosition().equals(position))
                 return true;
         return false;
     }
