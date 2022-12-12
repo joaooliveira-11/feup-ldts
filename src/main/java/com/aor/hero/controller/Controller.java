@@ -2,13 +2,11 @@ package com.aor.hero.controller;
 
 import com.aor.hero.Game;
 import com.aor.hero.gui.GUI;
-import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArena;
-import com.aor.hero.states.CatchingMonstersState;
 
 import java.io.IOException;
 
 public abstract class Controller<T> {
-    private T model;
+    private final T model;
 
     public Controller(T model) {
         this.model = model;
@@ -19,5 +17,4 @@ public abstract class Controller<T> {
     }
 
     public abstract void step(Game game, GUI.ACTION action, long time) throws IOException;
-
 }

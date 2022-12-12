@@ -16,7 +16,6 @@ public interface GUI {
     void drawCoin(Position position);
 
     void drawSupCoin(Position position);
-    void drawMonsterRunning(Position position);
 
     void drawText(Position position, String text, String color);
 

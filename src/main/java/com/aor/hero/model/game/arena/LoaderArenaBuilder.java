@@ -1,7 +1,5 @@
 package com.aor.hero.model.game.arena;
 
-import com.aor.hero.model.game.ArenaBuilder;
-import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArena;
 import com.aor.hero.model.game.elements.*;
 
 import java.io.BufferedReader;
@@ -11,38 +9,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
-    private int level;
-    private List<String> lines;
-
-    private Arena arena;
-    public LoaderArenaBuilder() {
-
-    }
-    public Arena createArena(int lifes, int pontos, Pacman pacman, List<Monster> monsters,List<MonsterRunning> monstersrunning, List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins ){
-        arena = new Arena(19,22);
-        arena.setPacman(pacman);
-        arena.setMonsters(arena.switchToMonsters(monsters,monstersrunning));
-        arena.setWalls(walls);
-        arena.setCoins(coins);
-        arena.setSuperCoins(supercoins);
-        arena.getPacman().setVidas(lifes);
-        arena.getPacman().setPontos(pontos);
-
-        return arena;
-    }
-
-    public Arena createArena(int vidas, int pontos) {
-        arena= new Arena(getWidth(),getHeight());
-        arena.setPacman(createPacman());
-        arena.setMonsters(createMonsters());
-        arena.setWalls(createWalls());
-        arena.setCoins(createCoins());
-        arena.setSuperCoins(createSupCoins());
-        arena.getPacman().setPontos(pontos);
-        arena.getPacman().setVidas(vidas);
-        return arena;
-    }
+public class LoaderArenaBuilder extends ArenaBuilder {
+    private final int level;
+    private final List<String> lines;
 
     public LoaderArenaBuilder(int level) throws IOException {
         this.level = level;
