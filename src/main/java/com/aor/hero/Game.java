@@ -32,7 +32,7 @@ Game {
     }
 
     private void start() throws IOException {
-        int frameTime = 375;
+        int frameTime = 200;
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();

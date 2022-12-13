@@ -22,8 +22,9 @@ public class CatchingMonstersViewer extends Viewer<CatchingMonstersArena> {
         drawElements(gui, getModel().getMonstersRunning(), new MonsterRunningViewer());
         drawElements(gui, getModel().getMonsters(), new MonsterViewer());
         drawElement(gui, getModel().getPacman(), new HeroViewer());
-        gui.drawText(new Position(0, 0), "Vidas: " + getModel().getPacman().getVidas(), "#FFD700");
-        gui.drawText(new Position(10, 0), "Pontos: " + getModel().getPacman().getPontos(), "#FFD700");
+        gui.drawText(new Position(0, 0), "Vidas:" + getModel().getPacman().getVidas(), "#FFFFFF");
+        gui.drawText(new Position(7, 0), "<", "#FFD700");
+        gui.drawText(new Position(9, 0), "Pontos:" + getModel().getPacman().getPontos(), "#FFFFFF");
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer){
