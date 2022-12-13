@@ -29,7 +29,7 @@ class LanternaGUITest {
         gui.drawPacman(new Position(1, 1));
         //FFD700
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 215, 0));
-        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "H");
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "<");
     }
 
     @Test
@@ -55,7 +55,7 @@ class LanternaGUITest {
         gui.drawCoin(new Position(1, 1));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(218, 165, 32));
-        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "o");
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "*");
     }
 
     @Test
@@ -63,7 +63,7 @@ class LanternaGUITest {
         gui.drawSupCoin(new Position(1, 1));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(218, 165, 32));
-        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "O");
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "+");
     }
 
     @Test
