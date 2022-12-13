@@ -59,20 +59,16 @@ public class PacmanNormalController extends GameController {
         }
     }
 
-    public void setdirection(String direction1) {
-        this.direction = direction1;
-    }
-
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (action == GUI.ACTION.UP) setdirection("up");
-        if (action == GUI.ACTION.RIGHT) setdirection("right");
-        if (action == GUI.ACTION.DOWN) setdirection("down");
-        if (action == GUI.ACTION.LEFT) setdirection("left");
-        if(direction == "up") movePacmanUp();
-        if(direction == "down") movePacmanDown();
-        if(direction == "right") movePacmanRight();
-        if(direction == "left") movePacmanLeft();
+        if (action == GUI.ACTION.UP) getModel().getPacman().setDirection("up");
+        if (action == GUI.ACTION.RIGHT) getModel().getPacman().setDirection("right");
+        if (action == GUI.ACTION.DOWN) getModel().getPacman().setDirection("down");
+        if (action == GUI.ACTION.LEFT) getModel().getPacman().setDirection("left");
+        if(getModel().getPacman().getDirection() == "up") movePacmanUp();
+        if(getModel().getPacman().getDirection() == "down") movePacmanDown();
+        if(getModel().getPacman().getDirection() == "right") movePacmanRight();
+        if(getModel().getPacman().getDirection() == "left") movePacmanLeft();
     }
 
 }

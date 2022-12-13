@@ -19,7 +19,7 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
     public LoaderArenaBuilder() {
 
     }
-    public Arena createArena(int lifes, int pontos, Pacman pacman, List<Monster> monsters,List<MonsterRunning> monstersrunning, List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins,List<Gate> gates ){
+    public Arena createArena(int lifes, int pontos, Pacman pacman, List<Monster> monsters,List<MonsterRunning> monstersrunning, List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins,List<Gate> gates,String direction){
         arena = new Arena(19,22);
         arena.setPacman(pacman);
         arena.setMonsters(arena.switchToMonsters(monsters,monstersrunning));
@@ -29,6 +29,7 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
         arena.setGates(gates);
         arena.getPacman().setVidas(lifes);
         arena.getPacman().setPontos(pontos);
+        arena.getPacman().setDirection(direction);
 
         return arena;
     }

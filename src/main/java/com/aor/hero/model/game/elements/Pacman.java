@@ -7,12 +7,15 @@ public class Pacman extends Element {
 
     private long PowerTime;
 
+    private String direction;
+
 
     public Pacman(int x, int y) {
         super(x, y);
         this.vidas = 3;
         this.pontos = 0;
         this.PowerTime = 0;
+        this.direction = "none";
     }
 
     public void diminuirVidas() {
@@ -53,5 +56,12 @@ public class Pacman extends Element {
 
     public boolean didTimeEnd(){
         return System.currentTimeMillis() - PowerTime >= 10000;
+    }
+
+    public String getDirection(){
+        return direction;
+    }
+    public void setDirection(String direction){
+        this.direction=direction;
     }
 }

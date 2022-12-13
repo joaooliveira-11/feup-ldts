@@ -6,6 +6,7 @@ import com.aor.hero.model.Position;
 import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArena;
 import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.model.game.elements.MonsterRunning;
+import com.aor.hero.viewer.Music;
 
 import java.io.IOException;
 import java.util.ConcurrentModificationException;
@@ -13,6 +14,8 @@ import java.util.ConcurrentModificationException;
 public class MonstersRunningController extends GameController {
 
     private long lastMovement;
+
+    private Music music=new Music();
 
     public MonstersRunningController(CatchingMonstersArena model) {
 
@@ -43,15 +46,19 @@ public class MonstersRunningController extends GameController {
             monster.setPosition(position);
             if (getModel().getPacman().getPosition().equals(position)) {
                 getModel().getMonstersRunning().remove(getModel().getMonsterRunning(position));
+                music.startKillMonsterMusic();
                 getModel().getMonsters().add(new Monster(10,10));
             }
         }
     }
-    public void moveMonster(Monster monster,Position position){
+    public void moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
-            if (getModel().getPacman().getPosition().equals(position))
+            if (getModel().getPacman().getPosition().equals(position)) {
                 getModel().getPacman().diminuirVidas();
+                music.startLoseLifeMusic();
+                getModel().getPacman().setPowerTime(-1);
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ public class ArenaController extends GameController {
             game.setState(new GameState(new LoaderArenaBuilder(1).createArena(savevidas,savepontos,getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins(),getModel().getGates())));
         }
         else if(getModel().getPacman().getPowerTime()>0){
-            game.setState(new CatchingMonstersState(new CatchingMonstersArenaBuilder().createCatchingMonstersArena(savevidas,savepontos,getModel().getPacman(),getModel().getMonsters(),getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins(),getModel().getGates())));
+            game.setState(new CatchingMonstersState(new CatchingMonstersArenaBuilder().createCatchingMonstersArena(savevidas,savepontos,getModel().getPacman(),getModel().getMonsters(),getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins(),getModel().getGates(),getModel().getPacman().getDirection())));
         }
         else {
             pacmanController.step(game, action, time);
