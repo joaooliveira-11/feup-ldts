@@ -46,6 +46,7 @@ public class PacmanEatingController extends GameController implements PacmanCont
             if (getModel().isMonster(position)){
                 getModel().getPacman().diminuirVidas();
                 music.startLoseLifeMusic();
+                getModel().getPacman().setPowerTime(-1);
             }
             else if(getModel().isCoin(position)){
                 getModel().getPacman().aumentarpontoscoin();

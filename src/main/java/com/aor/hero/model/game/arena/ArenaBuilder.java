@@ -5,6 +5,8 @@ import com.aor.hero.model.game.elements.*;
 import java.util.List;
 
 public abstract class ArenaBuilder {
+    public Pacman pacmaninitial=createPacman();
+    public List<Monster> monstersinitial=createMonsters();
     public Arena createArena(int vidas, int pontos) {
         Arena arena = new Arena(getWidth(), getHeight());
         arena.setPacman(createPacman());

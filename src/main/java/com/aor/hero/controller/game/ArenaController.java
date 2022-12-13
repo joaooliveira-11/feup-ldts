@@ -35,6 +35,9 @@ public class ArenaController extends GameController {
         else if(getModel().getCoins().size()==0 && getModel().getSuperCoins().size()==0){
             game.setState(new GameState(new LoaderArenaBuilder(1).createArena(savevidas,savepontos)));
         }
+        else if(getModel().getPacman().getPowerTime()<0){
+            game.setState(new GameState(new LoaderArenaBuilder(1).createArena(savevidas,savepontos,getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins(),getModel().getGates())));
+        }
         else if(getModel().getPacman().getPowerTime()>0){
             game.setState(new CatchingMonstersState(new CatchingMonstersArenaBuilder().createCatchingMonstersArena(savevidas,savepontos,getModel().getPacman(),getModel().getMonsters(),getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins(),getModel().getGates())));
         }

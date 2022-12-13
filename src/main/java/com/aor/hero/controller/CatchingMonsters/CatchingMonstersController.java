@@ -43,6 +43,9 @@ public class CatchingMonstersController extends GameController {
             game.setState(new GameState(new LoaderArenaBuilder(1).createArena(savevidas,savepontos,getModel().getPacman(),getModel().getMonsters(),getModel().getMonstersRunning(),getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins(),getModel().getGates())));
             getModel().getPacman().setPowerTime(0);
         }
+        else if(getModel().getPacman().getPowerTime()<0){
+            game.setState(new GameState(new LoaderArenaBuilder(1).createArena(savevidas,savepontos,getModel().getWalls(),getModel().getCoins(),getModel().getSuperCoins(),getModel().getGates())));
+        }
         else if(getModel().getPacman().getPowerTime()>=time_left){
             getModel().setMonstersRunning(getModel().switchToMonstersRunning(getModel().getMonsters()));
             getModel().getPacman().setPowerTime(System.currentTimeMillis());

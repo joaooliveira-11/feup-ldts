@@ -45,6 +45,18 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
         arena.getPacman().setVidas(vidas);
         return arena;
     }
+    public Arena createArena(int vidas, int pontos,List<Wall> walls ,List<Coin> coins,List<SupCoin> supCoins,List<Gate> gates){
+        arena= new Arena(getWidth(),getHeight());
+        arena.setPacman(createPacman());
+        arena.setMonsters(createMonsters());
+        arena.setWalls(walls);
+        arena.setGates(gates);
+        arena.setSuperCoins(supCoins);
+        arena.setCoins(coins);
+        arena.getPacman().setVidas(vidas);
+        arena.getPacman().setPontos(pontos);
+        return arena;
+    }
 
     public LoaderArenaBuilder(int level) throws IOException {
         this.level = level;
