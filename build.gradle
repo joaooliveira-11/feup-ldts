@@ -4,7 +4,7 @@ plugins {
     id 'info.solidsoft.pitest' version '1.6.0'
 }
 
-group 'com.aor.Pacman'
+group 'com.aor.hero'
 version '1.0'
 
 repositories {
@@ -19,7 +19,7 @@ pitest {
 }
 
 application {
-    mainClass.set('com.aor.Pacman.game.Game')
+    mainClass.set('com.aor.hero.game.Game')
 }
 
 dependencies {
