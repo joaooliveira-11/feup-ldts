@@ -22,21 +22,6 @@ public class Music {
         this.killmonstermusic = loadKillMonster();
         this.startgamemusic = loadStartGameMusic();
     }
-    /*
-    public Clip loadGamemusic() throws NullPointerException {
-        try {
-            in = AudioSystem.getAudioInputStream(new File("src/main/resources/musics/PacmanMusic.wav"));
-            gameMusic = AudioSystem.getClip();
-            gameMusic.open(in);
-            FloatControl gainControl = (FloatControl) gameMusic.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(-25.0f);
-            return gameMusic;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    */
 
     public Clip loadCoinmusic() throws NullPointerException{
         try {
@@ -113,13 +98,6 @@ public class Music {
         return null;
     }
 
-    /*
-    public void startPacmanMusic() {
-        gameMusic.setMicrosecondPosition(0);
-        gameMusic.start();
-        gameMusic.loop(Clip.LOOP_CONTINUOUSLY);
-    }
-    */
 
     public void startCoinMusic() {
         coinmusic.setMicrosecondPosition(0);
@@ -143,12 +121,6 @@ public class Music {
         killmonstermusic.setMicrosecondPosition(0);
         killmonstermusic.start();
         killmonstermusic.loop(0);
-    }
-
-    public void startGameMusic() {
-        startgamemusic.setMicrosecondPosition(0);
-        startgamemusic.start();
-        startgamemusic.loop(0);
     }
 }
 

@@ -47,20 +47,83 @@ Projeto desenvolvido por Bernardo Pinto (up202108842), Eduardo Oliveira (up20210
       [C] - Representa um fantasma.
       [D] - Representa um fantasma.
 
-- **Músicas:**  O nosso jogo apresenta músicas para colisão Pacman-pastilha, Pacman- super pastilha, Pacman - monstro sem poder e Pacman - monstro com poder.
+- **Músicas:** O nosso jogo apresenta músicas para colisão Pacman-pastilha, Pacman- super pastilha, Pacman - monstro sem poder e Pacman - monstro com poder.
+
+- **Fontes:** O nosso jogo apresenta fontes para a criação do Pacman, pastilhas, super pastilhas e dos monstros.
 
 ## Planned Features
 
 Gostaríamos de ter implementado um highscore que era atualizado após uma vitória do jogador e de ter melhorado o movimento dos monstros.
 No entanto, adicionamos algumas funcionalidades que não estavam planeadas e de resto, todas as funcionalidades planeadas foram implementadas.
 
+## Design
+
+### Architectural Pattern - Model-View-Controller (MVC)
+#### Problem in Context:
+Implementamos este design pattern para que as três componentes model, view, controller fossem independentes, delegando responsabilidades e para manter uma boa estrutura de código.
+
+#### The Pattern:
+Este design pattern, **Architectural Pattern**, mais em concreto o Model-View-Controller(MVC), é um "architectural pattern" usado para desenvolver user interfaces, dividindo a aplicação em 3 partes o Model, o Controller e o View.
+
+#### Implementation:
+ - "The model only represents the data", isto é, com o uso deste pattern temos classes cujo objetivo é guardar a data e estas classes são manipuladas pelo "Controller"
+ - "The view displays the model data, and sends user actions to the controller", isto é, com o uso deste pattern temos classes que são responsáveis por mostrar no ecrã os dados das classes que guardam dados.
+ - "The controller provides model data to the view, and interprets user actions", isto é, com o uso deste pattern temos classes que vão controlar o jogo interpretando as ações do utilizador.
+
+#### Consequences:
+- O uso deste pattern, permite termos o código organizado e respeitando ao máximo  o "Single Responsibility Principle"
+- Permite um processo de desenvolvimento mais rápido, dado que os constituintes do grupo podem trabalhar em diferentes componentes, nomeadamente, um na componente visual e outro na componente de controlar.
+- Permite que as modificações em certos constituintes não afetem todo o modelo.
+
+
+### Game Loop Pattern
+#### Problem in Context:
+Ao desenvolver este projeto, era necessário termos um loop durante a gameplay do utilizador para processar user input sem bloquear, atualizar o estado do jogo e renderizar o jogo.
+
+#### The Pattern:
+Para resolvermos este problema, usamos o **Game Loop Pattern**. Um loop de jogo é executado continuamente durante o jogo. A cada volta do loop, processa os inputs do utilizador sem bloquear, atualiza o estado do jogo e renderiza o jogo. Rastreia também a passagem do tempo para controlar o "rate" do jogo e cada iteração do loop é conhecida como "frame".
+
+#### Implementation:
 
 
 
+#### Consequences:
 
+
+### State Pattern
+#### Problem in Context:
+Sendo o nosso jogo constituido por vários estados de jogo, vários estados do menu bem como estado dos Monstros, era necessário escolher um pattern que permitisse ajudar na gestão destes estados.
+
+#### The Pattern:
+O State Pattern é um "behavioral design pattern" que permite que um objeto altere o seu comportamento quando o seu estado interno muda. Este pattern é usado para criar objetos que possuem um número finito de estados e cujo comportamento muda com base no estado atual.
+
+#### Implementation:
+Os estados estão divididos tal como na arquitetura mvc, existindo estados do jogo, estados do menu, e estados dos monstros, permitindo ao jogo e os seus constituintes de alterar o comportamente de forma simples e eficiente.
+
+#### Consequences:
+- Permite alterar o comportamento de um objeto sem modificar o código do objeto.
+- Torna as transições de estado explícitas.
+- Torna mais fácil adicionar novos estados ou transições porque podemos criar novas implementações das interfaces de estado
+
+
+### Factory Method Pattern
+#### Problem in Context:
+
+
+
+#### The Pattern:
+
+
+
+#### Implementation:
+
+
+#### Consequences:
 
 
 ## Self-evaluation
+
+
 
 O trabalho foi dividido por todos os constituintes do grupo e todos contribuimos com o nosso melhor.
 
