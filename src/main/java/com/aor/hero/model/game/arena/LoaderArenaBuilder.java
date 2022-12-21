@@ -1,6 +1,5 @@
 package com.aor.hero.model.game.arena;
 
-import com.aor.hero.model.game.ArenaBuilder;
 import com.aor.hero.model.game.elements.*;
 
 import java.io.BufferedReader;
@@ -10,57 +9,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
-    private List<String> lines;
-
-    private Arena arena;
-    public LoaderArenaBuilder() {
-
-    }
-    public Arena createArena(int lifes, int pontos, Pacman pacman, List<Monster> monsters,List<MonsterRunning> monstersrunning, List<Wall> walls, List<Coin> coins, List<SupCoin> supercoins,List<Gate> gates,String direction){
-        arena = new Arena(19,22);
-        arena.setPacman(pacman);
-        arena.setMonsters(arena.switchToMonsters(monsters,monstersrunning));
-        arena.setWalls(walls);
-        arena.setCoins(coins);
-        arena.setSuperCoins(supercoins);
-        arena.setGates(gates);
-        arena.getPacman().setVidas(lifes);
-        arena.getPacman().setPontos(pontos);
-        arena.getPacman().setDirection(direction);
-
-        return arena;
-    }
-
-    public Arena createArena(int vidas, int pontos) {
-        arena= new Arena(getWidth(),getHeight());
-        arena.setPacman(createPacman());
-        arena.setMonsters(createMonsters());
-        arena.setWalls(createWalls());
-        arena.setCoins(createCoins());
-        arena.setSuperCoins(createSupCoins());
-        arena.setGates(createGates());
-        arena.getPacman().setPontos(pontos);
-        arena.getPacman().setVidas(vidas);
-        return arena;
-    }
-    public Arena createArena(int vidas, int pontos,List<Wall> walls ,List<Coin> coins,List<SupCoin> supCoins,List<Gate> gates){
-        arena= new Arena(getWidth(),getHeight());
-        arena.setPacman(createPacman());
-        arena.setMonsters(createMonsters());
-        arena.setWalls(walls);
-        arena.setGates(gates);
-        arena.setSuperCoins(supCoins);
-        arena.setCoins(coins);
-        arena.getPacman().setVidas(vidas);
-        arena.getPacman().setPontos(pontos);
-        return arena;
-    }
+public class LoaderArenaBuilder extends ArenaBuilder {
+    private final int level;
+    private final List<String> lines;
 
     public LoaderArenaBuilder(int level) throws IOException {
+        this.level = level;
 
         URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
-        assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
@@ -145,7 +101,6 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
 
         return supercoins;
     }
-
 
     @Override
     protected List<Gate>createGates() {

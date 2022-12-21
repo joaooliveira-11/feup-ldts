@@ -1,9 +1,12 @@
 package com.aor.hero.model;
 
+import com.aor.hero.gui.GUI;
 import com.aor.hero.model.game.elements.Pacman;
+import com.aor.hero.viewer.game.HeroViewer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class PacmanTest {
     private Pacman pacman;
@@ -44,6 +47,29 @@ public class PacmanTest {
         Assertions.assertEquals(2,pacman.getVidas());
         Assertions.assertNotEquals(3,pacman.getVidas());
     }
+
+    @Test
+    void Pacman_winPower(){
+        Assertions.assertNotEquals(1,pacman.getPower());
+        pacman.winpower();
+        Assertions.assertEquals(1,pacman.getPower());
+    }
+
+    @Test
+    void Pacman_losePower(){
+        pacman.winpower();
+        Assertions.assertNotEquals(0,pacman.getPower());
+        pacman.losepower();
+        Assertions.assertEquals(0,pacman.getPower());
+    }
+
+    @Test
+    void Pacman_getPower(){
+        Assertions.assertNotNull(pacman.getPower());
+        Assertions.assertEquals(0,pacman.getPower());
+        pacman.winpower();
+        Assertions.assertEquals(1,pacman.getPower());
+    }
     @Test
     void Pacman_getPowerTime(){
         pacman.startPowerTime();
@@ -55,14 +81,6 @@ public class PacmanTest {
         pacman.startPowerTime();
         Assertions.assertNotNull(pacman.didTimeEnd());
         Assertions.assertEquals(false,pacman.didTimeEnd());
-    }
-
-    @Test
-    void Pacman_setTIME(){
-        pacman.setPowerTime(12);
-        Assertions.assertNotNull(pacman.didTimeEnd());
-        Assertions.assertNotEquals(14, pacman.getPowerTime());
-        Assertions.assertEquals(12, pacman.getPowerTime());
     }
 
 }

@@ -12,10 +12,9 @@ repositories {
 }
 
 pitest {
-    //junit5PluginVersion = '0.12'
-    junit5PluginVersion = '0.15'
+    junit5PluginVersion = '0.12'
     verbose = true
-    pitestVersion = '1.6.7'
+    pitestVersion = '1.6.0'
 }
 
 application {

@@ -1,6 +1,7 @@
 package com.aor.hero.controller;
 
-import com.aor.hero.controller.game.PacmanNormalController;
+import com.aor.hero.controller.game.PacmanController;
+import com.aor.hero.controller.game.PacmanController;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Pacman;
@@ -13,7 +14,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PacmanControllerTest {
-    private PacmanNormalController controller;
+    private PacmanController controller;
     private Pacman pacman;
     private Arena arena;
 
@@ -29,7 +30,7 @@ class PacmanControllerTest {
         arena.setCoins(Arrays.asList());
         arena.setSuperCoins(Arrays.asList());
         arena.setGates(Arrays.asList());
-        controller = new PacmanNormalController(arena);
+        controller = new PacmanController(arena);
     }
 
     @Test

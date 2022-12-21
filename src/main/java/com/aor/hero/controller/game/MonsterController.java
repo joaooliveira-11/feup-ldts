@@ -5,39 +5,34 @@ import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Monster;
-import com.aor.hero.viewer.Music;
 
 import java.io.IOException;
 
-public class MonsterNormalController extends GameController {
+public class MonsterController extends GameController {
     private long lastMovement;
 
-    Music music = new Music();
-
-    public MonsterNormalController(Arena arena) {
+    public MonsterController(Arena arena) {
         super(arena);
 
         this.lastMovement = 0;
     }
 
+    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 500) {
             for (Monster monster : getModel().getMonsters())
-                while(!(moveMonster(monster, monster.getPosition().getRandomNeighbour())));
+                moveMonster(monster, monster.getPosition().getRandomNeighbour());
             this.lastMovement = time;
         }
     }
 
-    public boolean moveMonster(Monster monster, Position position) {
+    private void moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
-            if (getModel().getPacman().getPosition().equals(position)) {
-                getModel().getPacman().diminuirVidas();
-                music.startLoseLifeMusic();
-                getModel().getPacman().setPowerTime(-1);
-            }
-            return true;
+            if (getModel().getPacman().getPosition().equals(position))
+                if(getModel().getPacman().getPower() == 0){
+                    getModel().getPacman().diminuirVidas();
+                }
         }
-        return false;
     }
 }

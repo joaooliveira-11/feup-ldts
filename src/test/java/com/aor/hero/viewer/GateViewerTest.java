@@ -3,6 +3,7 @@ package com.aor.hero.viewer;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.game.elements.Gate;
 import com.aor.hero.viewer.game.GateViewer;
+import com.aor.hero.viewer.game.HeroViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

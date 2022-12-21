@@ -29,12 +29,16 @@ public class Position {
 
     public Position getRandomNeighbour() {
         int n = (int) (Math.random() * 4);
-        return switch (n) {
-            case 0 -> getUp();
-            case 1 -> getRight();
-            case 2 -> getDown();
-            default -> getLeft();
-        };
+        switch (n) {
+            case 0:
+                return getUp();
+            case 1:
+                return getRight();
+            case 2:
+                return getDown();
+            default:
+                return getLeft();
+        }
     }
 
     public int getX() {

@@ -15,7 +15,7 @@ Game {
     private final LanternaGUI gui;
     private State state;
 
-    Music music;
+    private Music music;
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(24, 24);
@@ -32,7 +32,8 @@ Game {
     }
 
     private void start() throws IOException {
-        int frameTime = 200;
+        int FPS = 5;
+        int frameTime = 1000 / FPS;
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();

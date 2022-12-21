@@ -1,4 +1,5 @@
 package com.aor.hero;
+import com.aor.hero.model.game.elements.Pacman;
 import com.aor.hero.viewer.Music;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

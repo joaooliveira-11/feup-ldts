@@ -11,7 +11,7 @@ public class Music {
     private Clip loselifemusic;
     private Clip killmonstermusic;
 
-    private Clip startgamemusic;
+    private Clip powerendmusic;
     private Clip gameMusic;
     private AudioInputStream in;
 
@@ -20,9 +20,8 @@ public class Music {
         this.supercoinmusic = loadSuperCoinmusic();
         this.loselifemusic = loadloselifemusic();
         this.killmonstermusic = loadKillMonster();
-        this.startgamemusic = loadStartGameMusic();
+        this.powerendmusic = loadPowerEndMusic();
     }
-
     public Clip loadCoinmusic() throws NullPointerException{
         try {
             AudioInputStream in2;
@@ -83,21 +82,20 @@ public class Music {
         return null;
     }
 
-    public Clip loadStartGameMusic  () throws NullPointerException{
+    public Clip loadPowerEndMusic() throws NullPointerException{
         try {
             AudioInputStream in2;
-            in2 = AudioSystem.getAudioInputStream(new File("src/main/resources/Musics/startmusic.wav"));
-            startgamemusic = AudioSystem.getClip();
-            startgamemusic.open(in2);
-            FloatControl gainControl = (FloatControl)startgamemusic.getControl(FloatControl.Type.MASTER_GAIN);
+            in2 = AudioSystem.getAudioInputStream(new File("src/main/resources/Musics/powerEndmusic.wav"));
+            powerendmusic = AudioSystem.getClip();
+            powerendmusic.open(in2);
+            FloatControl gainControl = (FloatControl)powerendmusic.getControl(FloatControl.Type.MASTER_GAIN);
             gainControl.setValue(-25.0f);
-            return startgamemusic;
+            return powerendmusic;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
 
     public void startCoinMusic() {
         coinmusic.setMicrosecondPosition(0);
@@ -122,10 +120,11 @@ public class Music {
         killmonstermusic.start();
         killmonstermusic.loop(0);
     }
-    public void startGameMusic(){
-        startgamemusic.setMicrosecondPosition(0);
-        startgamemusic.start();
-        startgamemusic.loop(0);
+
+    public void startPowerEndMusic() {
+        powerendmusic.setMicrosecondPosition(0);
+        powerendmusic.start();
+        powerendmusic.loop(0);
     }
 }
 

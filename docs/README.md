@@ -2,7 +2,7 @@
 
 ## Game Description
 
-Este jogo é uma implementação em java, usando o terminal lanterna, do clássico Packman, com o objetivo de percorrer um labirinto e comer todas as pastilhas do caminho, sem nunca ser atingido por um fantasma. Um jogador aumenta a sua pontuação, em 10 pontos, ao comer as pastilhas e 50 pontos ao comer uma super pastilha. A cada tentativa, o jogador possui 3 vidas e cada colisão com um fantasma diminui em 1 unidade o número de vidas ou aumenta o número de pontos dependendo se o Pacman está com poder ou não, poder este proveniente de uma super pastilha. 
+Este jogo é uma implementação em java, usando o terminal lanterna, do clássico Packman, com o objetivo de percorrer um labirinto e comer todas as pastilhas do caminho, sem nunca ser atingido por um fantasma. Um jogador aumenta a sua pontuação, em 10 pontos, ao comer as pastilhas e 50 pontos ao comer uma super pastilha. A cada tentativa, o jogador possui 3 vidas e cada colisão com um fantasma diminui em 1 unidade o número de vidas ou aumenta o número de pontos dependendo se o Pacman está com poder ou não, poder este proveniente de uma super pastilha.
 O jogador ganha se conseguir comer todas as pastilhas existentes nos dois mapas enquanto o seu número de vidas é maior ou igual a 1. Se o número de vidas diminuir até 0, o jogador perde e volta ao primeiro nível, só ganhando se conseguir passar os dois mapas de seguida.
 
 Projeto desenvolvido por Bernardo Pinto (up202108842), Eduardo Oliveira (up202108690) e João Oliveira (up202108737).
@@ -66,9 +66,9 @@ Implementamos este design pattern para que as três componentes model, view, con
 Este design pattern, **Architectural Pattern**, mais em concreto o Model-View-Controller(MVC), é um "architectural pattern" usado para desenvolver user interfaces, dividindo a aplicação em 3 partes o Model, o Controller e o View.
 
 #### Implementation:
- - "The model only represents the data", isto é, com o uso deste pattern temos classes cujo objetivo é guardar a data e estas classes são manipuladas pelo "Controller"
- - "The view displays the model data, and sends user actions to the controller", isto é, com o uso deste pattern temos classes que são responsáveis por mostrar no ecrã os dados das classes que guardam dados.
- - "The controller provides model data to the view, and interprets user actions", isto é, com o uso deste pattern temos classes que vão controlar o jogo interpretando as ações do utilizador.
+- "The model only represents the data", isto é, com o uso deste pattern temos classes cujo objetivo é guardar a data e estas classes são manipuladas pelo "Controller"
+- "The view displays the model data, and sends user actions to the controller", isto é, com o uso deste pattern temos classes que são responsáveis por mostrar no ecrã os dados das classes que guardam dados.
+- "The controller provides model data to the view, and interprets user actions", isto é, com o uso deste pattern temos classes que vão controlar o jogo interpretando as ações do utilizador.
 
 #### Consequences:
 - O uso deste pattern, permite termos o código organizado e respeitando ao máximo  o "Single Responsibility Principle"
@@ -130,6 +130,3 @@ O trabalho foi dividido por todos os constituintes do grupo e todos contribuimos
 - Bernardo Pinto: 33.3%
 - Eduardo Oliveira: 33.3%
 - João Oliveira: 33.3%
-
-
-

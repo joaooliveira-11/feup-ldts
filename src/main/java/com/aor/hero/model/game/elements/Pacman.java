@@ -5,6 +5,8 @@ public class Pacman extends Element {
 
     private int pontos;
 
+    private int power;
+
     private long PowerTime;
 
     private String direction;
@@ -42,12 +44,18 @@ public class Pacman extends Element {
 
     public void setVidas(int vidas1){this.vidas = vidas1;}
 
-    public long getPowerTime() {
-        return PowerTime;
+    public void winpower(){
+        this.power = 1;
     }
 
-    public void setPowerTime(long powerTime){
-        this.PowerTime=powerTime;
+    public void losepower(){this.power = 0;}
+
+    public int getPower() {
+        return power;
+    }
+
+    public long getPowerTime() {
+        return PowerTime;
     }
 
     public void startPowerTime(){
@@ -55,7 +63,7 @@ public class Pacman extends Element {
     }
 
     public boolean didTimeEnd(){
-        return System.currentTimeMillis() - PowerTime >= 10000;
+        return System.currentTimeMillis() - PowerTime >= 5000;
     }
 
     public String getDirection(){

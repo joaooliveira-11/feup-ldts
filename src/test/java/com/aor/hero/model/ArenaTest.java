@@ -1,5 +1,4 @@
 package com.aor.hero.model;
-
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Coin;
 import com.aor.hero.model.game.elements.Gate;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class ArenaTest {
     private Arena arena;
@@ -96,4 +95,5 @@ public class ArenaTest {
         Assertions.assertNotEquals(true, arena.isGate(position));
         Assertions.assertEquals(true, arena.isGate(position2));
     }
+
 }

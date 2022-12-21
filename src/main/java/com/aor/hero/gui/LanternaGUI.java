@@ -1,6 +1,7 @@
 package com.aor.hero.gui;
 
 import com.aor.hero.model.Position;
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -48,12 +49,12 @@ public class LanternaGUI implements GUI {
                 .setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
-        return terminalFactory.createTerminal();
+        Terminal terminal = terminalFactory.createTerminal();
+        return terminal;
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/Square-Regular.otf");
-        assert resource != null;
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -89,18 +90,13 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawWall(Position position) {
-        drawCharacterWall(position.getX(), position.getY());
+        drawCharacterWall(position.getX(), position.getY(), ' ', "#FFFFFF", "#0000CC");
 
     }
     @Override
     public void drawGate(Position position) {
-        drawCharacterGate(position.getX(), position.getY());
+        drawCharacterGate(position.getX(), position.getY(), ' ', "#000000", "#000000");
 
-    }
-
-    @Override
-    public void drawMonsterRunning(Position position) {
-        drawCharacter(position.getX(), position.getY(), '@', "#3366FF");
     }
 
     @Override
@@ -128,18 +124,18 @@ public class LanternaGUI implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y + 1, "" + c);
     }
-    private void drawCharacterWall(int x, int y) {
+    private void drawCharacterWall(int x, int y, char c, String fcolor, String bcolor) {
         TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(TextColor.Factory.fromString(("#0000CC")));
-        tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
-        tg.putString(x, y + 1, "" + ' ');
+        tg.setBackgroundColor(TextColor.Factory.fromString((bcolor)));
+        tg.setForegroundColor(TextColor.Factory.fromString(fcolor));
+        tg.putString(x, y + 1, "" + c);
     }
 
-    private void drawCharacterGate(int x, int y) {
+    private void drawCharacterGate(int x, int y, char c, String fcolor, String bcolor) {
         TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(TextColor.Factory.fromString(("#000000")));
-        tg.setForegroundColor(TextColor.Factory.fromString("#000000"));
-        tg.putString(x, y + 1, "" + ' ');
+        tg.setBackgroundColor(TextColor.Factory.fromString((bcolor)));
+        tg.setForegroundColor(TextColor.Factory.fromString(fcolor));
+        tg.putString(x, y + 1, "" + c);
     }
 
     @Override
