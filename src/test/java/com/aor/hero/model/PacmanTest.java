@@ -83,4 +83,12 @@ public class PacmanTest {
         Assertions.assertEquals(false,pacman.didTimeEnd());
     }
 
+    @Test
+    void Pacman_getDirections(){
+        Assertions.assertNotNull(pacman.getDirection());
+        pacman.setDirection("up");
+        Assertions.assertNotEquals(pacman.getDirection(), "down");
+        Assertions.assertEquals("up", pacman.getDirection());
+    }
+
 }

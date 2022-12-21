@@ -8,9 +8,7 @@ import com.aor.hero.controller.menu.GameWinController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
-import com.aor.hero.model.game.elements.Coin;
-import com.aor.hero.model.game.elements.Pacman;
-import com.aor.hero.model.game.elements.SupCoin;
+import com.aor.hero.model.game.elements.*;
 import com.aor.hero.model.menu.GameOver;
 import com.aor.hero.model.menu.GameWin;
 import com.aor.hero.states.GameOverState;
@@ -57,6 +55,9 @@ public class ArenaControllerTest {
         arena.setPacman(new Pacman(12,12));
         arena.setCoins(Arrays.asList(new Coin(1, 2), new Coin(2, 3), new Coin(3, 4)));
         arena.setSuperCoins(Arrays.asList(new SupCoin(7, 7), new SupCoin(8, 8), new SupCoin(9, 9)));
+        arena.setGates(Arrays.asList(new Gate(15, 15), new Gate(16, 16)));
+        arena.setMonsters(Arrays.asList(new Monster(12, 12), new Monster(13, 13), new Monster(14, 14)));
+        arena.setWalls(Arrays.asList(new Wall(19, 19), new Wall(19, 19)));
     }
     @Test
     void Arena_LoseGame() throws IOException {
@@ -65,26 +66,17 @@ public class ArenaControllerTest {
         game.setState(new GameOverState(new GameOver()));
         Assertions.assertNotNull(gameover);
     }
-    /*
+
     @Test
-    void Arena_WinGame() throws IOException {
-        Position position1 = new Position(1,2);
-        Position position2 = new Position(2,3);
-        Position position3 = new Position(3,4);
-        Position position4 = new Position(7,7);
-        Position position5 = new Position(8,8);
-        Position position6 = new Position(9,9);
-        Assertions.assertNotNull(gameState.getModel());
-        arena.getCoins().remove(arena.getCoin(position1));
-        arena.getCoins().remove(arena.getCoin(position2));
-        arena.getCoins().remove(arena.getCoin(position3));
-        arena.getSuperCoins().remove(arena.getSuperCoin(position4));
-        arena.getSuperCoins().remove(arena.getSuperCoin(position5));
-        arena.getSuperCoins().remove(arena.getSuperCoin(position6));
-        arena.getPacman().setPontos(2500);
-        game.setState(new GameWinState(new GameWin()));
+    public void testStepGameWin() throws IOException {
+        GUI.ACTION action = GUI.ACTION.UP;
+        long time = 100;
+
+        arenacontroller.getModel().getPacman().setPontos(2501);
+        arenacontroller.step(game, action, 0);
+
         Assertions.assertNotNull(gamewin);
+
     }
-     */
 
 }

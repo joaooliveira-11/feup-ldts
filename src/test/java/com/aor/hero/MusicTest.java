@@ -17,7 +17,6 @@ public class MusicTest {
         NullPointerException e = null;
         Assertions.assertNotNull(music.loadCoinmusic());
         Assertions.assertNotEquals(e,music.loadCoinmusic());
-        /////////
     }
 
 
