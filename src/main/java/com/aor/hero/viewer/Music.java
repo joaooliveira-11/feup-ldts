@@ -122,5 +122,10 @@ public class Music {
         killmonstermusic.start();
         killmonstermusic.loop(0);
     }
+    public void startGameMusic(){
+        startgamemusic.setMicrosecondPosition(0);
+        startgamemusic.start();
+        startgamemusic.loop(0);
+    }
 }
 

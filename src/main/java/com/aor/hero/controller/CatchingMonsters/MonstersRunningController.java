@@ -15,7 +15,7 @@ public class MonstersRunningController extends GameController {
 
     private long lastMovement;
 
-    private Music music=new Music();
+    Music music=new Music();
 
     public MonstersRunningController(CatchingMonstersArena model) {
 
@@ -28,20 +28,20 @@ public class MonstersRunningController extends GameController {
             this.lastMovement = time;
             try {
                 for (MonsterRunning monster : getModel().getMonstersRunning())
-                    moveMonster(monster, monster.getPosition().getRandomNeighbour());
+                    while(!(moveMonster(monster, monster.getPosition().getRandomNeighbour())));
             }
             catch (NullPointerException e){}
             catch (ConcurrentModificationException f){}
             try {
                 for (Monster monster : getModel().getMonsters())
-                    moveMonster(monster, monster.getPosition().getRandomNeighbour());
+                    while(!(moveMonster(monster, monster.getPosition().getRandomNeighbour())));
             }
             catch (NullPointerException e){}
             catch (ConcurrentModificationException f){}
         }
     }
 
-    public void moveMonster(MonsterRunning monster, Position position) {
+    public boolean moveMonster(MonsterRunning monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
             if (getModel().getPacman().getPosition().equals(position)) {
@@ -49,9 +49,11 @@ public class MonstersRunningController extends GameController {
                 music.startKillMonsterMusic();
                 getModel().getMonsters().add(new Monster(10,10));
             }
+            return true;
         }
+        return false;
     }
-    public void moveMonster(Monster monster, Position position) {
+    public boolean moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
             if (getModel().getPacman().getPosition().equals(position)) {
@@ -59,6 +61,8 @@ public class MonstersRunningController extends GameController {
                 music.startLoseLifeMusic();
                 getModel().getPacman().setPowerTime(-1);
             }
+            return true;
         }
+        return false;
     }
 }

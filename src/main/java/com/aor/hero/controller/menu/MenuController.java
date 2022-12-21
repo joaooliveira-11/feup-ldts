@@ -8,6 +8,7 @@ import com.aor.hero.model.menu.Instructions;
 import com.aor.hero.model.menu.Menu;
 import com.aor.hero.states.GameState;
 import com.aor.hero.states.InstructionsState;
+import com.aor.hero.viewer.Music;
 
 import java.io.IOException;
 
@@ -15,21 +16,21 @@ public class MenuController extends Controller<Menu> {
     public MenuController(Menu menu) {
         super(menu);
     }
+    Music music=new Music();
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
-            case UP:
-                getModel().previousEntry();
-                break;
-            case DOWN:
-                getModel().nextEntry();
-                break;
-            case SELECT:
+            case UP -> getModel().previousEntry();
+            case DOWN -> getModel().nextEntry();
+            case SELECT -> {
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder(1).createArena(3,0)));
+                if (getModel().isSelectedStart()) {
+                    game.setState(new GameState(new LoaderArenaBuilder(1).createArena(3, 0)));
+                    music.startGameMusic();
+                }
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionsState(new Instructions()));
-
+            }
         }
     }
 }

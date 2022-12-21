@@ -9,13 +9,10 @@ import com.aor.hero.model.game.elements.Gate;
 import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.viewer.Music;
 
-import java.io.IOException;
 
 public class PacmanEatingController extends GameController implements PacmanController {
 
     Music music=new Music();
-
-    String direction;
     PacmanEatingController(CatchingMonstersArena arena){
         super(arena);
     }
@@ -68,9 +65,6 @@ public class PacmanEatingController extends GameController implements PacmanCont
                 }
             }
         }
-    }
-    public void setdirection(String direction1) {
-        this.direction = direction1;
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) {

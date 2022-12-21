@@ -4,14 +4,11 @@ import com.aor.hero.Game;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
-import com.aor.hero.model.game.arena.LoaderArenaBuilder;
 import com.aor.hero.model.game.elements.Gate;
-import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.viewer.Music;
 
 public class PacmanNormalController extends GameController {
     Music music=new Music();
-    String direction;
     public PacmanNormalController(Arena arena) {
         super(arena);
     }
@@ -31,7 +28,6 @@ public class PacmanNormalController extends GameController {
         movePacman(getModel().getPacman().getPosition().getDown());
     }
     private void movePacman(Position position) {
-        LoaderArenaBuilder builder=new LoaderArenaBuilder();
         Position p = new Position(9,8);
         if (getModel().isEmpty(position) && (!(position.equals(p)))) {
             getModel().getPacman().setPosition(position);

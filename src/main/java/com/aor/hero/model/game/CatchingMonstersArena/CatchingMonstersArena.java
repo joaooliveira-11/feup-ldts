@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CatchingMonstersArena implements GameArena {
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
 
     private List<Monster> monsters= new ArrayList<>();
     private Pacman pacman;
@@ -173,10 +173,6 @@ public class CatchingMonstersArena implements GameArena {
         catch (NullPointerException e){
             return new ArrayList<>();
         }
-    }
-
-    public void setMonsters(List<Monster> monsters) {
-        this.monsters = monsters;
     }
 
     public List<MonsterRunning> switchToMonstersRunning(List<Monster> monsters){

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class MonsterNormalController extends GameController {
     private long lastMovement;
 
-    private Music music = new Music();
+    Music music = new Music();
 
     public MonsterNormalController(Arena arena) {
         super(arena);
@@ -23,12 +23,12 @@ public class MonsterNormalController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 500) {
             for (Monster monster : getModel().getMonsters())
-                moveMonster(monster, monster.getPosition().getRandomNeighbour());
+                while(!(moveMonster(monster, monster.getPosition().getRandomNeighbour())));
             this.lastMovement = time;
         }
     }
 
-    public void moveMonster(Monster monster, Position position) {
+    public boolean moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
             if (getModel().getPacman().getPosition().equals(position)) {
@@ -36,6 +36,8 @@ public class MonsterNormalController extends GameController {
                 music.startLoseLifeMusic();
                 getModel().getPacman().setPowerTime(-1);
             }
+            return true;
         }
+        return false;
     }
 }

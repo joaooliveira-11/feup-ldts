@@ -1,6 +1,5 @@
 package com.aor.hero.model.game;
 
-import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.*;
 
 import java.util.List;

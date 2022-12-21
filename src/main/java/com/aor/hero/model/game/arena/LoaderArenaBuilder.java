@@ -1,7 +1,6 @@
 package com.aor.hero.model.game.arena;
 
 import com.aor.hero.model.game.ArenaBuilder;
-import com.aor.hero.model.game.CatchingMonstersArena.CatchingMonstersArena;
 import com.aor.hero.model.game.elements.*;
 
 import java.io.BufferedReader;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
-    private int level;
     private List<String> lines;
 
     private Arena arena;
@@ -60,9 +58,9 @@ public class LoaderArenaBuilder extends ArenaBuilder<Arena> {
     }
 
     public LoaderArenaBuilder(int level) throws IOException {
-        this.level = level;
 
         URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
+        assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);

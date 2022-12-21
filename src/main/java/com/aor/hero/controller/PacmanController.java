@@ -1,12 +1,11 @@
 package com.aor.hero.controller;
 
-import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 
 public interface PacmanController {
-    public void movePacmanLeft();
-    public void movePacmanRight();
-    public void movePacmanDown();
-    public void movePacmanUp();
-    public void movePacman(Position position);
+    void movePacmanLeft();
+    void movePacmanRight();
+    void movePacmanDown();
+    void movePacmanUp();
+    void movePacman(Position position);
 }
