@@ -198,8 +198,8 @@ Seguem-se as implementações das várias classes:
 ### Large Class
 A classe LanternaGUI e GUI contém vários métodos e linhas de código. Tendo em conta que são classes principais do jogo, achamos que não se justificava dividi-las noutras classes.
 
-### Duplicate Code
-
+### Lazy Class
+De modo a termos um código organizado, temos alguma classes que desempenham um papel menos relevante no projeto. Por exemplo: GameOverState, GameWinState, InstructionsState.
 
 ### Refused Bequest
 Devido ao uso de interfaces e classes abstratas, que simplificaram o nosso código, houve uma subida do **Refused bequest** smell. Isto leva a que algumas subclasses herdem métodos que não serão definidos nem usados. Por exemplo, as classes GameWinController e GameOverController.
