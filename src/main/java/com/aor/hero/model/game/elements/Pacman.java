@@ -5,8 +5,6 @@ public class Pacman extends Element {
 
     private int pontos;
 
-    private int power;
-
     private long PowerTime;
 
     private String direction;
@@ -39,20 +37,11 @@ public class Pacman extends Element {
     public void aumentarpontossupercoin() {
         this.pontos += 50;
     }
+    public void aumentarpontosmonstro(){this.pontos+=100;}
 
     public void setPontos(int pontos1){this.pontos = pontos1;}
 
     public void setVidas(int vidas1){this.vidas = vidas1;}
-
-    public void winpower(){
-        this.power = 1;
-    }
-
-    public void losepower(){this.power = 0;}
-
-    public int getPower() {
-        return power;
-    }
 
     public long getPowerTime() {
         return PowerTime;

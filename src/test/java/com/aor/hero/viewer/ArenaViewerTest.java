@@ -46,9 +46,9 @@ class ArenaViewerTest {
     void drawMonsters() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawMonster(new Position(4, 5));
-        Mockito.verify(gui, Mockito.times(1)).drawMonster(new Position(5, 6));
-        Mockito.verify(gui, Mockito.times(2)).drawMonster(Mockito.any(Position.class));
+        Mockito.verify(gui, Mockito.times(1)).drawMonsterNormal(new Position(4, 5));
+        Mockito.verify(gui, Mockito.times(1)).drawMonsterNormal(new Position(5, 6));
+        Mockito.verify(gui, Mockito.times(2)).drawMonsterNormal(Mockito.any(Position.class));
     }
 
     @Test

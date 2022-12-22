@@ -3,6 +3,7 @@ import com.aor.hero.Game;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.arena.LoaderArenaBuilder;
+import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.model.menu.GameOver;
 import com.aor.hero.model.menu.GameWin;
 import com.aor.hero.states.GameOverState;
@@ -36,9 +37,10 @@ public class ArenaController extends GameController {
             int savevidas  =  getModel().getPacman().getVidas();
             game.setState(new GameState(new LoaderArenaBuilder(2).createArena(savevidas, savepontos)));
         }
-        else if(getModel().getPacman().getPower() == 1 && getModel().getPacman().didTimeEnd()){
-            getModel().getPacman().losepower();
-            music1.startPowerEndMusic();
+        else if(getModel().getPacman().didTimeEnd() && (getModel().getMonsters().get(0).isRunning() || getModel().getMonsters().get(1).isRunning() || getModel().getMonsters().get(2).isRunning() || getModel().getMonsters().get(3).isRunning() )){
+            for(Monster monster: getModel().getMonsters()){
+                monster.setRunningState(false);
+            }
         }
         else {
             pacmanController.step(game, action, time);

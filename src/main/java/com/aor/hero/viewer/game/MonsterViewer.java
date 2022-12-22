@@ -6,6 +6,7 @@ import com.aor.hero.model.game.elements.Monster;
 public class MonsterViewer implements ElementViewer<Monster> {
     @Override
     public void draw(Monster monster, GUI gui) {
-        gui.drawMonster(monster.getPosition());
+        if(monster.isRunning()) gui.drawMonsterRunning(monster.getPosition());
+        else gui.drawMonsterNormal(monster.getPosition());
     }
 }

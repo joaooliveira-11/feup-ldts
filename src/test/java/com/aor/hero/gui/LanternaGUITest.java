@@ -49,7 +49,7 @@ class LanternaGUITest {
 
     @Test
     void drawMonster() {
-        gui.drawMonster(new Position(1, 1));
+        gui.drawMonsterNormal(new Position(1, 1));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
         Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "@");

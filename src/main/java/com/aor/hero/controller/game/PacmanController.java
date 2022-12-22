@@ -38,16 +38,17 @@ public class PacmanController extends GameController {
         if (getModel().isEmpty(position)) {
             getModel().getPacman().setPosition(position);
             if (getModel().isMonster(position)){
-                if(getModel().getPacman().getPower() == 0){
+                if(!(getModel().getMonster(position).isRunning())){
                     getModel().getPacman().diminuirVidas();
                     music.startLoseLifeMusic();
-                    getModel().getPacman().setPosition(new Position(16,18));
+                    getModel().getPacman().setPosition(new Position(9,12));
                     getModel().getPacman().setDirection("none");
                 }
                 else{
                     music.startKillMonsterMusic();
                     getModel().getMonsters().remove(getModel().getMonster(position));
-                    getModel().getMonsters().add(new Monster(11,10));
+                    getModel().getMonsters().add(new Monster(9,9));
+                    getModel().getPacman().aumentarpontosmonstro();
                 }
 
             }
@@ -58,7 +59,7 @@ public class PacmanController extends GameController {
             }
             else if(getModel().isSuperCoin(position)){
                 getModel().getPacman().aumentarpontossupercoin();
-                getModel().getPacman().winpower();
+                for(Monster monster:getModel().getMonsters()) monster.setRunningState(true);
                 getModel().getPacman().startPowerTime();
                 getModel().getSuperCoins().remove(getModel().getSuperCoin(position));
                 music.startSuperCoinMusic();
