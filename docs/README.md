@@ -71,7 +71,9 @@ Este design pattern, **Architectural Pattern**, mais em concreto o Model-View-Co
  - "The view displays the model data, and sends user actions to the controller", isto é, com o uso deste pattern temos classes que são responsáveis por mostrar no ecrã os dados das classes que guardam dados.
  - "The controller provides model data to the view, and interprets user actions", isto é, com o uso deste pattern temos classes que vão controlar o jogo interpretando as ações do utilizador.
 
-![MVC](docs/images/MVC.png) 
+<p align="center" justify="center">
+  <img src="../docs/images/MVC.png"/>
+</p>
 
 #### Consequences:
 - O uso deste pattern, permite termos o código organizado e respeitando ao máximo  o "Single Responsibility Principle".
@@ -89,7 +91,7 @@ Para resolvermos este problema, usamos o **Game Loop Pattern**. Um loop de jogo 
 #### Implementation:
 
 <p align="center" justify="center">
-  <img src="docs/images/Loop.png"/>
+  <img src="../docs/images/Loop.png"/>
 </p>
 
 #### Consequences:
@@ -109,16 +111,16 @@ Os estados estão divididos tal como na arquitetura mvc, existindo estados do jo
 Assim, o Game encontra-se subdividido em diferentes estados para haver uma melhor organização entre o que apresentar no ecrã.
 
 <p align="center" justify="center">
-  <img src="docs/UMLs/StateUML.png"/>
+  <img src="../docs/UMLs/StateUML.png"/>
 </p>
 
 Seguem-se as implementações das várias classes:
-- [State](../src/main/java/com.aor.hero/states/State.java)
-- [GameState](../src/main/java/com.aor.hero/states/GameState.java)
-- [GameWinState](../src/main/java/com.aor.hero/states/GameWinState.java)
-- [GameOverState](../src/main/java/com.aor.hero/states/GameOverState.java)
-- [InstructionsState](../src/main/java/com.aor.hero/states/InstructionsState.java)
-- [MenuState](../src/main/java/com.aor.hero/states/MenuState.java)
+- [State](../src/main/java/com/aor/hero/states/State.java)
+- [GameState](../src/main/java/com/aor/hero/states/GameState.java)
+- [GameWinState](../src/main/java/com/aor/hero/states/GameWinState.java)
+- [GameOverState](../src/main/java/com/aor/hero/states/GameOverState.java)
+- [InstructionsState](../src/main/java/com/aor/hero/states/InstructionsState.java)
+- [MenuState](../src/main/java/com/aor/hero/states/MenuState.java)
 
 #### Consequences:
 - Torna as transições de estado explícitas.
@@ -138,12 +140,12 @@ Na criação do nosso mapa, implementámos um ArenaBuilder como classe abstrata 
 A subclasse LoaderArenaBuilder é capaz de ler os vários níveis (no nosso projeto temos 2 níveis) de ficheiros diferentes e construir o mapa.
 
 <p align="center" justify="center">
-  <img src="docs/UMLs/FactoryUML.png"/>
+  <img src="../docs/UMLs/FactoryUML.png"/>
 </p>
 
 Seguem-se as implementações das duas classes:
-- [ArenaBuilder](../src/main/java/com.aor.hero/model/game/arena/ArenaBuilder.java)
-- [LoaderArenaBuilder](../src/main/java/com.aor.hero/model/game/arena/LoaderArenaBuilder.java)
+- [ArenaBuilder](../src/main/java/com/aor/hero/model/game/arena/ArenaBuilder.java)
+- [LoaderArenaBuilder](../src/main/java/com/aor/hero/model/game/arena/LoaderArenaBuilder.java)
 
 #### Consequences:
 - A criação de um objeto dentro de uma classe com o Factory Method é sempre mais flexível do que criar o objeto diretamente.
@@ -160,7 +162,7 @@ O **Facade Pattern** fornece uma interface simplificada para um sistema complexo
 #### Implementation:
 
 <p align="center" justify="center">
-  <img src="docs/UMLs/FacadeUML.png"/>
+  <img src="../docs/UMLs/FacadeUML.png"/>
 </p>
 
 #### Consequences:
@@ -178,16 +180,16 @@ Com este propósito, usámos o **Command Design Pattern** que encapsula a inform
 Através de um comando concreto e definido previamente, é possível definir a movimentação do pacman, sair do jogo e optar por um determinado menu.
 
 <p align="center" justify="center">
-  <img src="docs/UMLs/CommandUML.png"/>
+  <img src="../docs/UMLs/CommandUML.png"/>
 </p>
 
 Seguem-se as implementações das várias classes:
-- [Controller](../src/main/java/com.aor.hero/controller/Controller.java)
-- [PacmanController](../src/main/java/com.aor.hero/controller/game/PacmanController.java)
-- [GameOverController](../src/main/java/com.aor.hero/controller/menu/GameOverController.java)
-- [GameWinController](../src/main/java/com.aor.hero/controller/menu/GameWinController.java)
-- [InstructionsController](../src/main/java/com.aor.hero/controller/menu/InstructionsController.java)
-- [MenuController](../src/main/java/com.aor.hero/controller/menu/MenuController.java)
+- [Controller](../src/main/java/com/aor/hero/controller/Controller.java)
+- [PacmanController](../src/main/java/com/aor/hero/controller/game/PacmanController.java)
+- [GameOverController](../src/main/java/com/aor/hero/controller/menu/GameOverController.java)
+- [GameWinController](../src/main/java/com/aor/hero/controller/menu/GameWinController.java)
+- [InstructionsController](../src/main/java/com/aor/hero/controller/menu/InstructionsController.java)
+- [MenuController](../src/main/java/com/aor/hero/controller/menu/MenuController.java)
 
 #### Consequences:
 - Facilita a adição de novas ações de uma forma abstrata.
