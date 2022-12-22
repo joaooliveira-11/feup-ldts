@@ -106,6 +106,10 @@ O **State Pattern** é um "behavioral design pattern" que permite que um objeto 
 Os estados estão divididos tal como na arquitetura mvc, existindo estados do jogo e estados do menu, permitindo ao jogo e os seus constituintes de alterar o comportamente de forma simples e eficiente.
 Assim, o Game encontra-se subdividido em diferentes estados para haver uma melhor organização entre o que apresentar no ecrã.
 
+<p align="center" justify="center">
+  <img src="docs/UMLs/StateUML.png"/>
+</p>
+
 #### Consequences:
 - Torna as transições de estado explícitas.
 - Torna mais fácil adicionar novos estados ou transições porque podemos criar novas implementações das interfaces de estado.
@@ -122,6 +126,10 @@ O **Factory Method** é um "creational pattern" que define uma interface ou uma 
 #### Implementation:
 Na criação do nosso mapa, implementámos um ArenaBuilder como classe abstrata que "sabe" como construir o mapa, porém apenas as suas subclasses fornecem as componentes necessárias para o mapa.
 A subclasse LoaderArenaBuilder é capaz de ler os vários níveis (no nosso projeto temos 2 níveis) de ficheiros diferentes e construir o mapa.
+
+<p align="center" justify="center">
+  <img src="docs/UMLs/FactoryUML.png"/>
+</p>
 
 #### Consequences:
 - A criação de um objeto dentro de uma classe com o Factory Method é sempre mais flexível do que criar o objeto diretamente.
@@ -152,6 +160,10 @@ Com este propósito, usámos o **Command Design Pattern** que encapsula a inform
 
 #### Implementation:
 Através de um comando concreto e definido previamente, é possível definir a movimentação do pacman, sair do jogo e optar por um determinado menu.
+
+<p align="center" justify="center">
+  <img src="docs/UMLs/CommandUML.png"/>
+</p>
 
 #### Consequences:
 - Facilita a adição de novas ações de uma forma abstrata.
