@@ -71,9 +71,7 @@ Este design pattern, **Architectural Pattern**, mais em concreto o Model-View-Co
  - "The view displays the model data, and sends user actions to the controller", isto é, com o uso deste pattern temos classes que são responsáveis por mostrar no ecrã os dados das classes que guardam dados.
  - "The controller provides model data to the view, and interprets user actions", isto é, com o uso deste pattern temos classes que vão controlar o jogo interpretando as ações do utilizador.
 
-<p align="center" justify="center">
-  <img src="docs/images/MVC.png"/>
-</p>
+![MVC](docs/images/MVC.png) 
 
 #### Consequences:
 - O uso deste pattern, permite termos o código organizado e respeitando ao máximo  o "Single Responsibility Principle".
@@ -89,6 +87,10 @@ Ao desenvolver este projeto, era necessário termos um loop durante a gameplay d
 Para resolvermos este problema, usamos o **Game Loop Pattern**. Um loop de jogo é executado continuamente durante o jogo. A cada volta do loop, processa os inputs do utilizador sem bloquear, atualiza o estado do jogo e renderiza o jogo. Rastreia também a passagem do tempo para controlar o "rate" do jogo e cada iteração do loop é conhecida como "frame".
 
 #### Implementation:
+
+<p align="center" justify="center">
+  <img src="docs/images/Loop.png"/>
+</p>
 
 #### Consequences:
 -Simplicidade do código e atualização organizada.
@@ -109,6 +111,14 @@ Assim, o Game encontra-se subdividido em diferentes estados para haver uma melho
 <p align="center" justify="center">
   <img src="docs/UMLs/StateUML.png"/>
 </p>
+
+Seguem-se as implementações das várias classes:
+- [State](../src/main/java/com.aor.hero/states/State.java)
+- [GameState](../src/main/java/com.aor.hero/states/GameState.java)
+- [GameWinState](../src/main/java/com.aor.hero/states/GameWinState.java)
+- [GameOverState](../src/main/java/com.aor.hero/states/GameOverState.java)
+- [InstructionsState](../src/main/java/com.aor.hero/states/InstructionsState.java)
+- [MenuState](../src/main/java/com.aor.hero/states/MenuState.java)
 
 #### Consequences:
 - Torna as transições de estado explícitas.
@@ -131,6 +141,10 @@ A subclasse LoaderArenaBuilder é capaz de ler os vários níveis (no nosso proj
   <img src="docs/UMLs/FactoryUML.png"/>
 </p>
 
+Seguem-se as implementações das duas classes:
+- [ArenaBuilder](../src/main/java/com.aor.hero/model/game/arena/ArenaBuilder.java)
+- [LoaderArenaBuilder](../src/main/java/com.aor.hero/model/game/arena/LoaderArenaBuilder.java)
+
 #### Consequences:
 - A criação de um objeto dentro de uma classe com o Factory Method é sempre mais flexível do que criar o objeto diretamente.
 - Elimina a necessidade de vincular classes específicas da aplicação no código.
@@ -138,18 +152,20 @@ A subclasse LoaderArenaBuilder é capaz de ler os vários níveis (no nosso proj
 
 ### Facade Pattern
 #### Problem in Context:
-Com o objetivo de implementar funcionalidades no jogo como a música, foi necessário recorrer à intereção de objetos de outras classes.
+Procurando implementar um código estruturado e fácil de alterar, tentámos fazê-lo da forma mais geral possível.Para esse efeito, implementámos uma interface nomeada GUI. 
 
 #### The Pattern:
 O **Facade Pattern** fornece uma interface simplificada para um sistema complexo de classes.
 
 #### Implementation:
-Criámos uma classe Music que realiza toda a interação do jogo com as AudioInputStream e Clip. Nos seus métodos são chamados métodos dos objetos destas classes, que irão ser chamados no Game apenas a partir de um objeto da classe Music.
+
+<p align="center" justify="center">
+  <img src="docs/UMLs/FacadeUML.png"/>
+</p>
 
 #### Consequences:
 - Simplifica a iteração entre a classe principal (Game) com os objetos de outras classes.
 - Promove testabilidade e capacidade de substituição.
-- Facilita a adição/remoção/mudança do som.
 
 ### Command Pattern
 #### Problem in Context: 
@@ -165,9 +181,31 @@ Através de um comando concreto e definido previamente, é possível definir a m
   <img src="docs/UMLs/CommandUML.png"/>
 </p>
 
+Seguem-se as implementações das várias classes:
+- [Controller](../src/main/java/com.aor.hero/controller/Controller.java)
+- [PacmanController](../src/main/java/com.aor.hero/controller/game/PacmanController.java)
+- [GameOverController](../src/main/java/com.aor.hero/controller/menu/GameOverController.java)
+- [GameWinController](../src/main/java/com.aor.hero/controller/menu/GameWinController.java)
+- [InstructionsController](../src/main/java/com.aor.hero/controller/menu/InstructionsController.java)
+- [MenuController](../src/main/java/com.aor.hero/controller/menu/MenuController.java)
+
 #### Consequences:
 - Facilita a adição de novas ações de uma forma abstrata.
 - Torna a aplicação mais interativa.
+
+## Code Smells e Refactoring 
+
+### Large Class
+A classe LanternaGUI e GUI contém vários métodos e linhas de código. Tendo em conta que são classes principais do jogo, achamos que não se justificava dividi-las noutras classes.
+
+### Duplicate Code
+
+
+### Refused Bequest
+Devido ao uso de interfaces e classes abstratas, que simplificaram o nosso código, houve uma subida do **Refused bequest** smell. Isto leva a que algumas subclasses herdem métodos que não serão definidos nem usados. Por exemplo, as classes GameWinController e GameOverController.
+
+### Long Parameter List
+Para desenhar todos os elementos do mapa através da leitura de um ficheiro .txt, usámos o método drawCharacter que é passado com 4 parâmetros.
 
 
 ## Self-evaluation
