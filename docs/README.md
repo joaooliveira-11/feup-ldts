@@ -95,9 +95,9 @@ Para resolvermos este problema, usamos o **Game Loop Pattern**. Um loop de jogo 
 </p>
 
 #### Consequences:
--Simplicidade do código e atualização organizada.
--O jogo não se atualiza demasiado depressa. Com uma taxa de atualização constante não é possível que máquinas melhores corram o jogo mais rapidamente.
--Power-friendly. Como só atualizamos o jogo a um passo constante, tiramos muita carga do CPU.
+- Simplicidade do código e atualização organizada.
+- O jogo não se atualiza demasiado depressa. Com uma taxa de atualização constante não é possível que máquinas melhores corram o jogo mais rapidamente.
+- Power-friendly. Como só atualizamos o jogo a um passo constante, tiramos muita carga do CPU.
 
 ### State Pattern
 #### Problem in Context:
