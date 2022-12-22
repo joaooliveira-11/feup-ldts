@@ -71,6 +71,10 @@ Este design pattern, **Architectural Pattern**, mais em concreto o Model-View-Co
  - "The view displays the model data, and sends user actions to the controller", isto é, com o uso deste pattern temos classes que são responsáveis por mostrar no ecrã os dados das classes que guardam dados.
  - "The controller provides model data to the view, and interprets user actions", isto é, com o uso deste pattern temos classes que vão controlar o jogo interpretando as ações do utilizador.
 
+<p align="center" justify="center">
+  <img src="docs/images/MVC.png"/>
+</p>
+
 #### Consequences:
 - O uso deste pattern, permite termos o código organizado e respeitando ao máximo  o "Single Responsibility Principle".
 - Permite um processo de desenvolvimento mais rápido, dado que os constituintes do grupo podem trabalhar em diferentes componentes, nomeadamente, um na componente visual e outro na componente de controlar.
@@ -96,7 +100,7 @@ Para resolvermos este problema, usamos o **Game Loop Pattern**. Um loop de jogo 
 Sendo o nosso jogo constituido por vários estados de jogo e vários estados do menu, era necessário escolher um pattern que permitisse ajudar na gestão destes estados.
 
 #### The Pattern:
-O State Pattern é um "behavioral design pattern" que permite que um objeto altere o seu comportamento quando o seu estado interno muda. Este pattern é usado para criar objetos que possuem um número finito de estados e cujo comportamento muda com base no estado atual.
+O **State Pattern** é um "behavioral design pattern" que permite que um objeto altere o seu comportamento quando o seu estado interno muda. Este pattern é usado para criar objetos que possuem um número finito de estados e cujo comportamento muda com base no estado atual.
 
 #### Implementation:
 Os estados estão divididos tal como na arquitetura mvc, existindo estados do jogo e estados do menu, permitindo ao jogo e os seus constituintes de alterar o comportamente de forma simples e eficiente.
@@ -113,7 +117,7 @@ O mapa ou arena do nosso jogo é constituído por vários elementos (paredes, pa
 Esta implementação permite inserir apenas os elementos necessários e gerar mapas de diferentes formas.
 
 #### The Pattern:
-O Factory Method é um "creational pattern" que define uma interface ou uma classe abstrata para criação de um objeto, mas deixa que as subclasses decidam que classe instanciar, ou seja, as subclasses são responsáveis por criar a instância da classe.
+O **Factory Method** é um "creational pattern" que define uma interface ou uma classe abstrata para criação de um objeto, mas deixa que as subclasses decidam que classe instanciar, ou seja, as subclasses são responsáveis por criar a instância da classe.
 
 #### Implementation:
 Na criação do nosso mapa, implementámos um ArenaBuilder como classe abstrata que "sabe" como construir o mapa, porém apenas as suas subclasses fornecem as componentes necessárias para o mapa.
@@ -129,7 +133,7 @@ A subclasse LoaderArenaBuilder é capaz de ler os vários níveis (no nosso proj
 Com o objetivo de implementar funcionalidades no jogo como a música, foi necessário recorrer à intereção de objetos de outras classes.
 
 #### The Pattern:
-Fornece uma interface simplificada para um sistema complexo de classes.
+O **Facade Pattern** fornece uma interface simplificada para um sistema complexo de classes.
 
 #### Implementation:
 Criámos uma classe Music que realiza toda a interação do jogo com as AudioInputStream e Clip. Nos seus métodos são chamados métodos dos objetos destas classes, que irão ser chamados no Game apenas a partir de um objeto da classe Music.
@@ -144,7 +148,7 @@ Criámos uma classe Music que realiza toda a interação do jogo com as AudioInp
 Dependendo do estado atual do jogo, diferentes inputs do teclado devem executar diferentes ações.
 
 #### The Pattern:
-Com este propósito, usámos o Command design pattern que encapsula a informação necessária para executar uma ação ou servir de trigger para uma ocorrência posterior.
+Com este propósito, usámos o **Command Design Pattern** que encapsula a informação necessária para executar uma ação ou servir de trigger para uma ocorrência posterior.
 
 #### Implementation:
 Através de um comando concreto e definido previamente, é possível definir a movimentação do pacman, sair do jogo e optar por um determinado menu.

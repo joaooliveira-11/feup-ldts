@@ -21,11 +21,11 @@ Projeto desenvolvido por *Bernardo Pinto* (up202108842), *Eduardo Oliveira* (up2
 
 - **Menu Preview:**
 
-![Menu_preview](docs/Menu.preview.png)
+![Menu_preview](docs/images/Menu.preview.png)
 
 - **Controlo de jogador Preview / Teclas para jogar Preview:**
 
-![gamegif](docs/gamegif.gif)
+![gamegif](docs/gifs/gamegif.gif)
 
 
 ### Funcionalidades planeadas:
@@ -76,16 +76,16 @@ Projeto desenvolvido por *Bernardo Pinto* (up202108842), *Eduardo Oliveira* (up2
         - O porquê usarmos : Usado para o estado do jogo e o estado do menu.
 
 ### Testing:
-![Coverage](docs/Coverage.png)
+![Coverage](docs/images/Coverage.png)
 
 ### Game MoockUp:
-![PACMAN_PREVIEW](docs/PACMAN_PREVIEW.jpg)
+![PACMAN_PREVIEW](docs/images/PACMAN_PREVIEW.jpg)
 
 ### UML
-![UML2](docs/UML2.png)
+![UML2](docs/UMLs/UML2.png)
 
 ### UML using Plugins:
-![image](docs/image.png)
+![image](docs/UMLs/image.png)
 
 
 
