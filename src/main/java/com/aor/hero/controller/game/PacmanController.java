@@ -46,8 +46,8 @@ public class PacmanController extends GameController {
                 }
                 else{
                     music.startKillMonsterMusic();
-                    getModel().getMonsters().remove(getModel().getMonster(position));
-                    getModel().getMonsters().add(new Monster(9,9));
+                    getModel().getMonster(position).setRunningState(false);
+                    getModel().getMonster(position).setPosition(new Position(9,9));
                     getModel().getPacman().aumentarpontosmonstro();
                 }
 

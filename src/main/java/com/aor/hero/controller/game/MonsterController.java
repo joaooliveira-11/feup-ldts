@@ -34,7 +34,6 @@ public class MonsterController extends GameController {
 
     private boolean moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
-            try{
                 monster.setPosition(position);
                 if (getModel().getPacman().getPosition().equals(position) && getModel().getPacman().getDirection()=="none") {
                     if (!(getModel().getMonster(position).isRunning())) {
@@ -42,16 +41,15 @@ public class MonsterController extends GameController {
                         music.startLoseLifeMusic();
                         getModel().getPacman().setPosition(new Position(9, 12));
                         getModel().getPacman().setDirection("none");
-                    }else {
+                    } else {
                         music.startKillMonsterMusic();
-                        getModel().getMonsters().remove(getModel().getMonster(position));
-                        getModel().getMonsters().add(new Monster(9, 9));
+                        getModel().getMonster(position).setRunningState(false);
+                        getModel().getMonster(position).setPosition(new Position(9, 9));
                         getModel().getPacman().aumentarpontosmonstro();
                     }
                 }
-            }
-            catch (ConcurrentModificationException e){}
-            return true;
+                return true;
+
         }
         else if (getModel().isGate(position)){
             for(Gate gate : getModel().getGates()){
