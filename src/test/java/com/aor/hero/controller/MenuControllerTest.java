@@ -24,20 +24,26 @@ public class MenuControllerTest {
 
     @Test
     void GameOverSelectedInstructions() throws IOException {
+        Assertions.assertNotNull(menucontroller);
         menucontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.SELECT,0);
+        Assertions.assertEquals(true,menu.isSelectedInstructions());
+        Assertions.assertNotEquals(false, menu.isSelectedInstructions());
         menu.nextEntry();
         Assertions.assertNotNull(menu);
+        Assertions.assertNotEquals(menu.isSelectedStart(), menucontroller.getModel());
+        Assertions.assertNotEquals(menu.isSelectedExit(), menucontroller.getModel());
         menu.isSelectedInstructions();
         Assertions.assertEquals(menu,menucontroller.getModel());
     }
 
     @Test
     void GameOverSelectedStartGame() throws IOException {
+        Assertions.assertNotNull(menucontroller);
         menucontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(menucontroller.getModel());
-        menu.isSelectedStart();
+        Assertions.assertEquals(true, menu.isSelectedStart());
         Assertions.assertEquals(menu,menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(menucontroller.getModel());
@@ -52,22 +58,26 @@ public class MenuControllerTest {
     void GameOverSelectedExit() throws IOException {
         menucontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(menucontroller.getModel());
-        menu.isSelectedStart();
+        Assertions.assertNotEquals(true, menu.isSelectedInstructions());
+        Assertions.assertNotEquals(true, menu.isSelectedExit());
+        Assertions.assertEquals(true, menu.isSelectedStart());
         Assertions.assertEquals(menu,menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.SELECT,0);
+        Assertions.assertEquals(true ,menu.isSelectedInstructions());
+        Assertions.assertNotEquals(true, menu.isSelectedExit());
+        Assertions.assertEquals(false, menu.isSelectedStart());
         menu.nextEntry();
         Assertions.assertNotNull(menu);
-        menu.isSelectedInstructions();
         Assertions.assertEquals(menu,menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(menucontroller.getModel());
+        Assertions.assertEquals(false, menu.isSelectedExit());
         menu.nextEntry();
         Assertions.assertNotNull(menu);
-        menu.isSelectedExit();
         Assertions.assertEquals(menu,menucontroller.getModel());
     }
     @Test

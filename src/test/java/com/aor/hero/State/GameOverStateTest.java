@@ -10,6 +10,11 @@ public class GameOverStateTest {
     GameOver gameover_to_set;
 
     @Test
+    void get_Controller(){
+        gameoverstate= new GameOverState(gameover_to_set);
+        Assertions.assertNotNull(gameoverstate);
+    }
+    @Test
     void GameOverState_beforeSetstate(){
         Assertions.assertNull(gameoverstate);
     }

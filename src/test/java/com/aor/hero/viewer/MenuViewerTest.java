@@ -16,3 +16,4 @@ public class MenuViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 5), "Menu", "#FFFFFF");
     }
 }
+

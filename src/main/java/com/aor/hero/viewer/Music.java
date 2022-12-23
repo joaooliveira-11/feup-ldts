@@ -10,8 +10,6 @@ public class Music {
     private Clip supercoinmusic;
     private Clip loselifemusic;
     private Clip killmonstermusic;
-
-    private Clip powerendmusic;
     private Clip gameMusic;
     private AudioInputStream in;
 
@@ -20,7 +18,6 @@ public class Music {
         this.supercoinmusic = loadSuperCoinmusic();
         this.loselifemusic = loadloselifemusic();
         this.killmonstermusic = loadKillMonster();
-        this.powerendmusic = loadPowerEndMusic();
     }
     public Clip loadCoinmusic() throws NullPointerException{
         try {
@@ -82,21 +79,6 @@ public class Music {
         return null;
     }
 
-    public Clip loadPowerEndMusic() throws NullPointerException{
-        try {
-            AudioInputStream in2;
-            in2 = AudioSystem.getAudioInputStream(new File("src/main/resources/Musics/powerEndmusic.wav"));
-            powerendmusic = AudioSystem.getClip();
-            powerendmusic.open(in2);
-            FloatControl gainControl = (FloatControl)powerendmusic.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(-25.0f);
-            return powerendmusic;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public void startCoinMusic() {
         coinmusic.setMicrosecondPosition(0);
         coinmusic.start();
@@ -121,10 +103,5 @@ public class Music {
         killmonstermusic.loop(0);
     }
 
-    public void startPowerEndMusic() {
-        powerendmusic.setMicrosecondPosition(0);
-        powerendmusic.start();
-        powerendmusic.loop(0);
-    }
 }
 

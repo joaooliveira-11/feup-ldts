@@ -9,7 +9,6 @@ import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.viewer.Music;
 
 import java.io.IOException;
-import java.util.ConcurrentModificationException;
 
 public class MonsterController extends GameController {
     private long lastMovement;
@@ -44,20 +43,20 @@ public class MonsterController extends GameController {
         }
         else if (getModel().isEmpty(position)) {
             monster.setPosition(position);
-            if (getModel().getPacman().getPosition().equals(position) && getModel().getPacman().getDirection()=="none") {
+            if (getModel().getPacman().getPosition().equals(position)) {
                 if (!(getModel().getMonster(position).isRunning())) {
-                        getModel().getPacman().diminuirVidas();
-                        music.startLoseLifeMusic();
-                        getModel().getPacman().setPosition(new Position(9, 12));
-                        getModel().getPacman().setDirection("none");
-                    } else {
-                        music.startKillMonsterMusic();
-                        getModel().getMonster(position).setRunningState(false);
-                        getModel().getMonster(position).setPosition(new Position(9, 9));
-                        getModel().getPacman().aumentarpontosmonstro();
-                    }
+                    getModel().getPacman().diminuirVidas();
+                    music.startLoseLifeMusic();
+                    getModel().getPacman().setPosition(new Position(9, 12));
+                    getModel().getPacman().setDirection("none");
+                } else {
+                    music.startKillMonsterMusic();
+                    getModel().getMonster(position).setRunningState(false);
+                    getModel().getMonster(position).setPosition(new Position(9, 9));
+                    getModel().getPacman().aumentarpontosmonstro();
                 }
-                return true;
+            }
+            return true;
 
         }
         return false;

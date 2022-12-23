@@ -80,6 +80,10 @@ public class PacmanController extends GameController {
         this.direction = direction1;
     }
 
+    public String getdirection(){
+        return direction;
+    }
+
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
         if (action == GUI.ACTION.UP) setdirection("up");

@@ -1,19 +1,16 @@
 package com.aor.hero.controller;
-
 import com.aor.hero.Game;
 import com.aor.hero.controller.game.ArenaController;
 import com.aor.hero.controller.game.GameController;
 import com.aor.hero.controller.menu.GameOverController;
 import com.aor.hero.controller.menu.GameWinController;
 import com.aor.hero.gui.GUI;
-import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.*;
 import com.aor.hero.model.menu.GameOver;
 import com.aor.hero.model.menu.GameWin;
 import com.aor.hero.states.GameOverState;
 import com.aor.hero.states.GameState;
-import com.aor.hero.states.GameWinState;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -70,13 +67,9 @@ public class ArenaControllerTest {
     @Test
     public void testStepGameWin() throws IOException {
         GUI.ACTION action = GUI.ACTION.UP;
-        long time = 100;
-
-        arenacontroller.getModel().getPacman().setPontos(2501);
+        arenacontroller.getModel().getPacman().setPontos(3251);
         arenacontroller.step(game, action, 0);
-
         Assertions.assertNotNull(gamewin);
-
     }
-
 }
+

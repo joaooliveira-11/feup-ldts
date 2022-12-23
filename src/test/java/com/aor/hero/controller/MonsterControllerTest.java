@@ -37,6 +37,7 @@ class MonsterControllerTest {
 
         arena.setWalls(Arrays.asList());
         arena.setMonsters(Arrays.asList());
+        arena.setGates(Arrays.asList());
 
         controller = new MonsterController(arena);
 
@@ -75,6 +76,7 @@ class MonsterControllerTest {
             controller.step(game,GUI.ACTION.NONE,501+i*501);
         assertEquals(new Position(5,6),monster.getPosition());
     }
+
     @Test
     void moveMonstersGap() throws IOException {
         Monster monster = new Monster(5, 5);

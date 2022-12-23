@@ -1,10 +1,7 @@
 package com.aor.hero.controller;
-
 import com.aor.hero.Game;
-import com.aor.hero.controller.menu.GameOverController;
 import com.aor.hero.controller.menu.GameWinController;
 import com.aor.hero.gui.GUI;
-import com.aor.hero.model.menu.GameOver;
 import com.aor.hero.model.menu.GameWin;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,16 +27,28 @@ public class GameWinControllerTest {
         gamewincontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(gamewincontroller.getModel());
         gamewin.nextEntry();
+        gamewincontroller.step(game, GUI.ACTION.SELECT,0);
+        Assertions.assertNotEquals(true, gamewin.isSelectedExit());
+        Assertions.assertNotEquals(null,gamewin.isSelectedExit());
+        Assertions.assertEquals(false, gamewin.isSelectedExit());
+        Assertions.assertEquals(true, gamewin.isSelectedTryBetterScore());
+        Assertions.assertNotEquals(null,gamewin.isSelectedTryBetterScore());
         Assertions.assertNotNull(gamewin);
         Assertions.assertEquals(gamewin, gamewincontroller.getModel());
     }
 
     @Test
-    void GameOverUpOption() throws IOException {
+    void GameWinUpOption() throws IOException {
         gamewincontroller.step(game, GUI.ACTION.UP, 0);
         Assertions.assertNotNull(gamewincontroller.getModel());
         gamewin.previousEntry();
         Assertions.assertNotNull(gamewin);
+        Assertions.assertNotEquals(true, gamewin.isSelectedExit());
+        Assertions.assertNotEquals(null,gamewin.isSelectedExit());
+        Assertions.assertEquals(false, gamewin.isSelectedExit());
+        Assertions.assertEquals(true, gamewin.isSelectedTryBetterScore());
+        Assertions.assertNotEquals(false, gamewin.isSelectedTryBetterScore());
+        Assertions.assertNotEquals(null,gamewin.isSelectedTryBetterScore());
         Assertions.assertEquals(gamewin, gamewincontroller.getModel());
     }
 
@@ -47,7 +56,9 @@ public class GameWinControllerTest {
     void GameOverSelectedTryAgain() throws IOException {
         gamewincontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(gamewincontroller.getModel());
-        gamewin.isSelectedTryBetterScore();
+        Assertions.assertEquals(true,gamewin.isSelectedTryBetterScore());
+        Assertions.assertNotEquals(false,gamewin.isSelectedTryBetterScore());
+        Assertions.assertNotEquals(null,gamewin.isSelectedTryBetterScore());
         Assertions.assertEquals(gamewin, gamewincontroller.getModel());
         gamewincontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(gamewincontroller.getModel());
@@ -55,18 +66,19 @@ public class GameWinControllerTest {
         Assertions.assertNotNull(gamewincontroller.getModel());
         gamewin.nextEntry();
         Assertions.assertNotNull(gamewin);
-        gamewin.isSelectedExit();
         Assertions.assertEquals(gamewin,gamewincontroller.getModel());
     }
     @Test
     void GameOverSelectedExit() throws IOException {
         gamewincontroller.step(game, GUI.ACTION.DOWN, 0);
+        gamewin.nextEntry();
         Assertions.assertNotNull(gamewincontroller.getModel());
         gamewincontroller.step(game, GUI.ACTION.SELECT,0);
-        Assertions.assertNotNull(gamewincontroller.getModel());
         gamewin.nextEntry();
+        Assertions.assertNotNull(gamewincontroller.getModel());
         Assertions.assertNotNull(gamewin);
-        gamewin.isSelectedExit();
+        Assertions.assertEquals(true,gamewin.isSelectedExit());
+        Assertions.assertNotEquals(null,gamewin.isSelectedExit());
         Assertions.assertEquals(gamewin,gamewincontroller.getModel());
     }
 

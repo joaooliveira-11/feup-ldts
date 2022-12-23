@@ -29,9 +29,10 @@ public class GameOverControllerTest {
         gameovercontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(gameovercontroller.getModel());
         gameovercontroller.step(game, GUI.ACTION.SELECT,0);
-        gameOver.nextEntry();
         Assertions.assertNotNull(gameOver);
-        gameOver.isSelectedGiveUp();
+        Assertions.assertNotEquals(null,gameOver.isSelectedGiveUp());
+        Assertions.assertEquals(true, gameOver.isSelectedGiveUp());
+        Assertions.assertNotEquals(false,gameOver.isSelectedGiveUp());
         Assertions.assertEquals(gameOver,gameovercontroller.getModel());
     }
 
@@ -39,15 +40,11 @@ public class GameOverControllerTest {
     void GameOverSelectedTryAgain() throws IOException {
         gameovercontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(gameovercontroller.getModel());
-        gameOver.isSelectedTryAgain();
+        Assertions.assertEquals(true,gameOver.isSelectedTryAgain());
+        Assertions.assertNotEquals(false,gameOver.isSelectedTryAgain());
+        Assertions.assertNotEquals(null,gameOver.isSelectedTryAgain());
         Assertions.assertEquals(gameOver,gameovercontroller.getModel());
-        gameovercontroller.step(game, GUI.ACTION.DOWN, 0);
-        Assertions.assertNotNull(gameovercontroller.getModel());
-        gameovercontroller.step(game, GUI.ACTION.SELECT,0);
-        gameOver.nextEntry();
-        Assertions.assertNotNull(gameOver);
-        gameOver.isSelectedGiveUp();
-        Assertions.assertEquals(gameOver,gameovercontroller.getModel());
+
     }
 
     @Test
@@ -67,3 +64,4 @@ public class GameOverControllerTest {
         Assertions.assertEquals(gameOver, gameovercontroller.getModel());
     }
 }
+

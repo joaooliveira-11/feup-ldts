@@ -29,7 +29,7 @@ public class ArenaController extends GameController {
         if (action == GUI.ACTION.QUIT || getModel().getPacman().getVidas() == 0) {
             game.setState(new GameOverState(new GameOver()));
         }
-        else if(getModel().getPacman().getPontos() > 2500 && getModel().getSuperCoins().size() == 0 && getModel().getCoins().size() == 0 && getModel().getPacman().getVidas() >= 1){
+        else if(getModel().getPacman().getPontos() > 3250 && getModel().getSuperCoins().size() == 0 && getModel().getCoins().size() == 0 && getModel().getPacman().getVidas() >= 1){
             game.setState(new GameWinState(new GameWin()));
         }
         else if(getModel().getSuperCoins().size() == 0 && getModel().getCoins().size() == 0 && getModel().getPacman().getVidas() >= 1){

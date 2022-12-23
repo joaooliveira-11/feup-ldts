@@ -5,6 +5,7 @@ import com.aor.hero.model.Position;
 import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.*;
 import com.aor.hero.viewer.game.GameViewer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -40,6 +41,7 @@ class ArenaViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(2, 3));
         Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(3, 4));
         Mockito.verify(gui, Mockito.times(3)).drawWall(Mockito.any(Position.class));
+        Assertions.assertNotNull(viewer.getModel().getWalls());
     }
 
     @Test
@@ -47,8 +49,9 @@ class ArenaViewerTest {
         viewer.draw(gui);
 
         Mockito.verify(gui, Mockito.times(1)).drawMonsterNormal(new Position(4, 5));
-        Mockito.verify(gui, Mockito.times(1)).drawMonsterNormal(new Position(5, 6));
+        Mockito.verify(gui, Mockito.times(1)).drawMonsterNormal((new Position(5, 6)));
         Mockito.verify(gui, Mockito.times(2)).drawMonsterNormal(Mockito.any(Position.class));
+        Assertions.assertNotNull(viewer.getModel().getMonsters());
     }
 
     @Test
@@ -57,6 +60,7 @@ class ArenaViewerTest {
 
         Mockito.verify(gui, Mockito.times(1)).drawPacman(new Position(5, 8));
         Mockito.verify(gui, Mockito.times(1)).drawPacman(Mockito.any(Position.class));
+        Assertions.assertNotNull(viewer.getModel().getPacman());
     }
 
     @Test
@@ -75,6 +79,7 @@ class ArenaViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawCoin(new Position(9, 8));
         Mockito.verify(gui, Mockito.times(1)).drawCoin(new Position(10, 8));
         Mockito.verify(gui, Mockito.times(3)).drawCoin(Mockito.any(Position.class));
+        Assertions.assertNotNull(viewer.getModel().getCoins());
     }
 
     @Test
@@ -85,5 +90,6 @@ class ArenaViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(8, 9));
         Mockito.verify(gui, Mockito.times(1)).drawSupCoin(new Position(9, 9 ));
         Mockito.verify(gui, Mockito.times(3)).drawSupCoin(Mockito.any(Position.class));
+        Assertions.assertNotNull(viewer.getModel().getSuperCoins());
     }
 }
