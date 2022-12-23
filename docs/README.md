@@ -25,14 +25,14 @@ Projeto desenvolvido por Bernardo Pinto (up202108842), Eduardo Oliveira (up20210
 
 - **Colisões:** As colisões entre os diferentes constituintes são analisadas:
 
-    - o Pacman a colidir com uma pastilha ganha 10 pontos e a colidir com uma super pastilha ganha 50 pontos e um poder que o torna imortal nas colisões com monstros durante 10s.
+    - o Pacman a colidir com uma pastilha ganha 10 pontos e a colidir com uma super pastilha ganha 50 pontos e muda os monstros para azul durante 5s.
     - o Pacman e os fantasmas a colidir com uma parede não a podem atravessar.
-    - o Pacman a colidir com os fantasmas apresenta 2 situações: se tiver poder mata o monstro e ganha 100 pontos. Caso contrário, morre, volta ao seu spawn e perde 1 vida.
-    - O Pacman a colidir com um gate vai para o posição do outro gate existente no mapa.
+    - o Pacman a colidir com os fantasmas apresenta 2 situações: se o monstro apresentar cor azul este morre e o pacman ganha 100 pontos, caso contrário, o pacman perde 1 vida.
+    - o Pacman e os monstros a colidir com um gate vão para a posição do outro gate existente no mapa.
 
-- **Pontuações:** Valores Base: 1 pastilha = 10 pontos, 1 super pastilha = 50 pontos, colisão Pacman-Monstro com poder ligado = 100 pontos.
+- **Pontuações:** Valores Base: 1 pastilha = 10 pontos, 1 super pastilha = 50 pontos, colisão Pacman-Monstro azul = 100 pontos.
 
-- **Fantasmas:** O estado do monstro depende se o Pacman tem poder. Se o pacman tiver poder, os monstros mudam de cor para azul e tornam-se vulneráveis na colisão, isto é, em vez de matarem o Pacman, são comidos por este e voltam ao seu spawn. Quando o poder acabar, voltam a mudar de cor para vermelho. Todos os fantasmas têm movimentos diferentes.
+- **Fantasmas:** O estado do monstro depende se o Pacman apanhou uma super pastilha, azul caso tenha apanhado, estado em que se tornam vulneráveis à colisão durante 5 segundos ou vermelhos por default. Todos os fantasmas têm movimentos diferentes.
 
 - **Níveis diferentes:** O nosso jogo apresenta 2 níveis distintos em que o jogador deve passar de seguida para ganhar o jogo.
 
@@ -47,7 +47,7 @@ Projeto desenvolvido por Bernardo Pinto (up202108842), Eduardo Oliveira (up20210
       [C] - Representa um fantasma.
       [D] - Representa um fantasma.
 
-- **Músicas:** O nosso jogo apresenta músicas para colisão Pacman-pastilha, Pacman- super pastilha, Pacman - monstro sem poder e Pacman - monstro com poder.
+- **Músicas:** O nosso jogo apresenta músicas para colisão Pacman-pastilha, Pacman- super pastilha, Pacman - monstro azul e Pacman - monstro vermelho.
 
 - **Fontes:** O nosso jogo apresenta fontes para a criação do Pacman, pastilhas, super pastilhas e dos monstros.
 
