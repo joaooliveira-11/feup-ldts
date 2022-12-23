@@ -30,8 +30,8 @@ public class GameWinControllerTest {
         gamewincontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotEquals(true, gamewin.isSelectedExit());
         Assertions.assertNotEquals(null,gamewin.isSelectedExit());
-        Assertions.assertEquals(false, gamewin.isSelectedExit());
-        Assertions.assertEquals(true, gamewin.isSelectedTryBetterScore());
+        Assertions.assertFalse(gamewin.isSelectedExit());
+        Assertions.assertTrue(gamewin.isSelectedTryBetterScore());
         Assertions.assertNotEquals(null,gamewin.isSelectedTryBetterScore());
         Assertions.assertNotNull(gamewin);
         Assertions.assertEquals(gamewin, gamewincontroller.getModel());
@@ -45,8 +45,8 @@ public class GameWinControllerTest {
         Assertions.assertNotNull(gamewin);
         Assertions.assertNotEquals(true, gamewin.isSelectedExit());
         Assertions.assertNotEquals(null,gamewin.isSelectedExit());
-        Assertions.assertEquals(false, gamewin.isSelectedExit());
-        Assertions.assertEquals(true, gamewin.isSelectedTryBetterScore());
+        Assertions.assertFalse(gamewin.isSelectedExit());
+        Assertions.assertTrue(gamewin.isSelectedTryBetterScore());
         Assertions.assertNotEquals(false, gamewin.isSelectedTryBetterScore());
         Assertions.assertNotEquals(null,gamewin.isSelectedTryBetterScore());
         Assertions.assertEquals(gamewin, gamewincontroller.getModel());
@@ -56,7 +56,7 @@ public class GameWinControllerTest {
     void GameOverSelectedTryAgain() throws IOException {
         gamewincontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(gamewincontroller.getModel());
-        Assertions.assertEquals(true,gamewin.isSelectedTryBetterScore());
+        Assertions.assertTrue(gamewin.isSelectedTryBetterScore());
         Assertions.assertNotEquals(false,gamewin.isSelectedTryBetterScore());
         Assertions.assertNotEquals(null,gamewin.isSelectedTryBetterScore());
         Assertions.assertEquals(gamewin, gamewincontroller.getModel());
@@ -77,7 +77,7 @@ public class GameWinControllerTest {
         gamewin.nextEntry();
         Assertions.assertNotNull(gamewincontroller.getModel());
         Assertions.assertNotNull(gamewin);
-        Assertions.assertEquals(true,gamewin.isSelectedExit());
+        Assertions.assertTrue(gamewin.isSelectedExit());
         Assertions.assertNotEquals(null,gamewin.isSelectedExit());
         Assertions.assertEquals(gamewin,gamewincontroller.getModel());
     }

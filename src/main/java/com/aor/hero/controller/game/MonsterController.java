@@ -35,8 +35,11 @@ public class MonsterController extends GameController {
         if (getModel().isGate(position)){
             for(Gate gate : getModel().getGates()){
                 if(!gate.getPosition().equals(position)){
-                    Position position2 = new Position(gate.getPosition().getX(), gate.getPosition().getY());
-                    monster.setPosition(position2);
+                    if(monster.getPosition().getX()<gate.getPosition().getX()) {
+                        monster.setPosition(new Position(gate.getPosition().getX()-1, gate.getPosition().getY()));
+                    }
+                    else
+                        monster.setPosition(new Position(gate.getPosition().getX()+1, gate.getPosition().getY()));
                 }
             }
             return true;
@@ -45,18 +48,18 @@ public class MonsterController extends GameController {
             monster.setPosition(position);
             if (getModel().getPacman().getPosition().equals(position)) {
                 if (!(getModel().getMonster(position).isRunning())) {
-                    getModel().getPacman().diminuirVidas();
-                    music.startLoseLifeMusic();
-                    getModel().getPacman().setPosition(new Position(9, 12));
-                    getModel().getPacman().setDirection("none");
-                } else {
-                    music.startKillMonsterMusic();
-                    getModel().getMonster(position).setRunningState(false);
-                    getModel().getMonster(position).setPosition(new Position(9, 9));
-                    getModel().getPacman().aumentarpontosmonstro();
+                        getModel().getPacman().diminuirVidas();
+                        music.startLoseLifeMusic();
+                        getModel().getPacman().setPosition(new Position(9, 12));
+                        getModel().getPacman().setDirection("none");
+                    } else {
+                        music.startKillMonsterMusic();
+                        getModel().getMonster(position).setRunningState(false);
+                        getModel().getMonster(position).setPosition(new Position(9, 9));
+                        getModel().getPacman().aumentarpontosmonstro();
+                    }
                 }
-            }
-            return true;
+                return true;
 
         }
         return false;

@@ -1,7 +1,6 @@
 package com.aor.hero.controller;
 import com.aor.hero.Game;
 import com.aor.hero.controller.game.ArenaController;
-import com.aor.hero.controller.game.GameController;
 import com.aor.hero.controller.menu.GameOverController;
 import com.aor.hero.controller.menu.GameWinController;
 import com.aor.hero.gui.GUI;
@@ -23,7 +22,6 @@ public class ArenaControllerTest {
 
     private ArenaController arenacontroller;
 
-    private GameController gamecontroller;
 
     private GameState gameState;
 

@@ -9,8 +9,8 @@ import org.mockito.Mockito;
 
 public class GameOverViewerTest {
 
-    private GameOverViewer gameOverViewer= new GameOverViewer(new GameOver());
-    private GUI gui = Mockito.mock(GUI.class);
+    private final GameOverViewer gameOverViewer= new GameOverViewer(new GameOver());
+    private final GUI gui = Mockito.mock(GUI.class);
 
     @Test
     void drawElements() {

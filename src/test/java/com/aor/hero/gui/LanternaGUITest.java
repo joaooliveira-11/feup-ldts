@@ -3,10 +3,7 @@ package com.aor.hero.gui;
 import com.aor.hero.model.Position;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -99,7 +96,7 @@ class LanternaGUITest {
     }
 
     @Test
-    void clear() throws IOException {
+    void clear() {
         gui.clear();
         Mockito.verify(screen, Mockito.times(1)).clear();
     }

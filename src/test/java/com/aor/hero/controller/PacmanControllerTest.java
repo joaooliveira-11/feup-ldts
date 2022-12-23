@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 class PacmanControllerTest {
@@ -133,9 +132,9 @@ class PacmanControllerTest {
     }
     @Test
     void movePacman_Gate(){
-        arena.setGates(Arrays.asList(new Gate(5,4), new Gate(7,8)));
-        pacman.setDirection("up");
-        controller.movePacmanUp();
-        Assertions.assertEquals(new Position(7,8), pacman.getPosition());
+        arena.setGates(Arrays.asList(new Gate(6,5), new Gate(9,8)));
+        pacman.setDirection("right");
+        controller.movePacmanRight();
+        Assertions.assertEquals(new Position(10,8), pacman.getPosition());
     }
 }

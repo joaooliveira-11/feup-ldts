@@ -24,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class MonsterControllerTest {
     private MonsterController controller;
-    private Pacman pacman;
     private Arena arena;
     private Game game;
 
@@ -32,7 +31,7 @@ class MonsterControllerTest {
     void setUp() {
         arena = new Arena(10, 10);
 
-        pacman = new Pacman(5, 5);
+        Pacman pacman = new Pacman(5, 5);
         arena.setPacman(pacman);
 
         arena.setWalls(Arrays.asList());
@@ -112,6 +111,8 @@ class MonsterControllerTest {
         ));
 
         controller.step(game, GUI.ACTION.NONE, 1000);
-        Assertions.assertEquals(new Position(8,8), monster.getPosition());
+        Position expected=new Position(8,8);
+        Assertions.assertEquals((expected.getX()-monster.getPosition().getX())+(expected.getY()-monster.getPosition().getY()),1);
+        Assertions.assertEquals(expected.getX()-monster.getPosition().getX(),1);
     }
 }

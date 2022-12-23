@@ -9,12 +9,10 @@ import com.aor.hero.model.menu.GameWin;
 import com.aor.hero.states.GameOverState;
 import com.aor.hero.states.GameState;
 import com.aor.hero.states.GameWinState;
-import com.aor.hero.viewer.Music;
 
 import java.io.IOException;
 
 public class ArenaController extends GameController {
-    Music music1 = new Music();
     private final PacmanController pacmanController;
     private final MonsterController monsterController;
 

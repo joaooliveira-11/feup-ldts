@@ -3,7 +3,6 @@ package com.aor.hero.viewer.menu;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.Position;
 import com.aor.hero.model.menu.GameOver;
-import com.aor.hero.model.menu.Menu;
 import com.aor.hero.viewer.Viewer;
 
 

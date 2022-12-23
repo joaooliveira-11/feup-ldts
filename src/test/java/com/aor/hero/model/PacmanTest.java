@@ -24,7 +24,6 @@ public class PacmanTest {
     @Test
     void Pacman_getVidas(){
         Assertions.assertEquals(3, pacman.getVidas());
-        Assertions.assertNotNull(pacman.getVidas());
         Assertions.assertNotEquals(true, pacman.getVidas());
         Assertions.assertNotEquals(false, pacman.getVidas());
         Assertions.assertNotEquals(-1, pacman.getVidas());
@@ -32,7 +31,6 @@ public class PacmanTest {
 
     @Test
     void Pacman_getPontos(){
-        Assertions.assertNotNull(pacman.getPontos());
         Assertions.assertNotEquals(true, pacman.getPontos());
         Assertions.assertNotEquals(false, pacman.getPontos());
         Assertions.assertNotEquals(-1, pacman.getPontos());
@@ -42,10 +40,8 @@ public class PacmanTest {
     @Test
     void Pacman_aumentarpontoscoin(){
         pacman.aumentarpontoscoin();
-        Assertions.assertNotNull(pacman.getPontos());
         Assertions.assertEquals(10,pacman.getPontos());
         Assertions.assertNotEquals(20,pacman.getPontos());
-        Assertions.assertNotNull(pacman.getPontos());
         Assertions.assertNotEquals(true, pacman.getPontos());
         Assertions.assertNotEquals(false, pacman.getPontos());
         Assertions.assertNotEquals(-1, pacman.getPontos());
@@ -54,10 +50,8 @@ public class PacmanTest {
     @Test
     void Pacman_aumentarpontossupercoin(){
         pacman.aumentarpontossupercoin();
-        Assertions.assertNotNull(pacman.getPontos());
         Assertions.assertEquals(50,pacman.getPontos());
         Assertions.assertNotEquals(100,pacman.getPontos());
-        Assertions.assertNotNull(pacman.getPontos());
         Assertions.assertNotEquals(true, pacman.getPontos());
         Assertions.assertNotEquals(false, pacman.getPontos());
         Assertions.assertNotEquals(-1, pacman.getPontos());
@@ -65,7 +59,6 @@ public class PacmanTest {
     @Test
     void Pacman_aumentarpontosmontro(){
         pacman.aumentarpontosmonstro();
-        Assertions.assertNotNull(pacman.getPontos());
         Assertions.assertNotEquals(0, pacman.getPontos());
         Assertions.assertEquals(100, pacman.getPontos());
     }
@@ -75,7 +68,6 @@ public class PacmanTest {
         pacman.diminuirVidas();
         Assertions.assertEquals(2,pacman.getVidas());
         Assertions.assertNotEquals(3,pacman.getVidas());
-        Assertions.assertNotNull(pacman.getVidas());
         Assertions.assertNotEquals(true, pacman.getVidas());
         Assertions.assertNotEquals(false, pacman.getVidas());
         Assertions.assertNotEquals(-1, pacman.getVidas());
@@ -84,15 +76,13 @@ public class PacmanTest {
     @Test
     void Monster_isRunning(){
         for(Monster monster : arena.getMonsters()){
-            Assertions.assertEquals(false, monster.isRunning());
-            Assertions.assertNotNull(monster.isRunning());
+            Assertions.assertFalse(monster.isRunning());
         }
         for(Monster monster : arena.getMonsters()){
             monster.setRunningState(true);
         }
         for(Monster monster : arena.getMonsters()){
-            Assertions.assertEquals(true, monster.isRunning());
-            Assertions.assertNotNull(monster.isRunning());
+            Assertions.assertTrue(monster.isRunning());
         }
     }
 
@@ -102,28 +92,25 @@ public class PacmanTest {
             monster.setRunningState(true);
         }
         for(Monster monster: arena.getMonsters()){
-            Assertions.assertEquals(true, monster.isRunning());
-            Assertions.assertNotNull(monster.isRunning());
+            Assertions.assertTrue(monster.isRunning());
         }
         for(Monster monster : arena.getMonsters()){
             monster.setRunningState(false);
         }
         for(Monster monster : arena.getMonsters()){
-            Assertions.assertEquals(false, monster.isRunning());
-            Assertions.assertNotNull(monster.isRunning());
+            Assertions.assertFalse(monster.isRunning());
         }
     }
     @Test
     void Pacman_getPowerTime(){
         pacman.startPowerTime();
-        Assertions.assertNotNull(pacman.getPowerTime());
     }
 
     @Test
     void Pacman_didTimeEnd(){
         pacman.startPowerTime();
-        Assertions.assertNotNull(pacman.didTimeEnd());
-        Assertions.assertEquals(false,pacman.didTimeEnd());
+        pacman.didTimeEnd();
+        Assertions.assertFalse(pacman.didTimeEnd());
     }
 
     @Test

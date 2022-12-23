@@ -4,12 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Instructions {
-    private List<String> instructions_entries;
-
-    private int instructions_currentEntry = 0;
+    private final List<String> instructions_entries;
 
     public Instructions() {
-        this.instructions_entries = Arrays.asList("Return");
+        this.instructions_entries = List.of("Return");
     }
 
     public String getEntry(int i) {
@@ -17,6 +15,7 @@ public class Instructions {
     }
 
     public boolean isSelected(int i) {
+        int instructions_currentEntry = 0;
         return instructions_currentEntry == i;
     }
 

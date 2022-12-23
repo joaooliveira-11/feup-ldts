@@ -10,8 +10,7 @@ public class Music {
     private Clip supercoinmusic;
     private Clip loselifemusic;
     private Clip killmonstermusic;
-    private Clip gameMusic;
-    private AudioInputStream in;
+
 
     public Music() {
         this.coinmusic = loadCoinmusic();

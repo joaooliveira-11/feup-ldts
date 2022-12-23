@@ -26,7 +26,7 @@ public class GameWinTest {
 
     @Test
     void Instructions_getsize(){
-        Assertions.assertNotNull(gamewin.getNumberEntries());
+        gamewin.getNumberEntries();
         Assertions.assertEquals(2, gamewin.getNumberEntries());
         Assertions.assertNotEquals(3, gamewin.getNumberEntries());
         Assertions.assertNotEquals(-1, gamewin.getNumberEntries());

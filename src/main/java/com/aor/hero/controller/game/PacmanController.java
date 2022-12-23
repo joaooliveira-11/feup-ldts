@@ -7,13 +7,9 @@ import com.aor.hero.model.game.arena.Arena;
 import com.aor.hero.model.game.elements.Gate;
 import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.viewer.Music;
-import com.aor.hero.viewer.game.MonsterViewer;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class PacmanController extends GameController {
     String direction;
-    MonsterViewer monsterViewer = new MonsterViewer();
 
     Music music = new Music();
     public PacmanController(Arena arena) {
@@ -64,11 +60,15 @@ public class PacmanController extends GameController {
                 getModel().getSuperCoins().remove(getModel().getSuperCoin(position));
                 music.startSuperCoinMusic();
             }
-            else if(getModel().isGate(position)){
-                for(Gate gate : getModel().getGates()){
-                    if(!gate.getPosition().equals(position)){
-                        Position position2 = new Position(gate.getPosition().getX(), gate.getPosition().getY());
-                        getModel().getPacman().setPosition(position2);
+            else if(getModel().isGate(position)) {
+                for (Gate gate : getModel().getGates()) {
+                    if (!gate.getPosition().equals(position)) {
+                        if (direction == "left") {
+                            getModel().getPacman().setPosition(new Position(gate.getPosition().getX() - 1, gate.getPosition().getY()));
+                        }
+                        else {
+                            getModel().getPacman().setPosition(new Position(gate.getPosition().getX() + 1, gate.getPosition().getY()));
+                        }
                     }
                 }
             }

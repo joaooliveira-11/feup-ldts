@@ -20,7 +20,7 @@ public class InstructionsTest {
 
     @Test
     void Instructions_getsize(){
-        Assertions.assertNotNull(instructions.getNumberEntries());
+        instructions.getNumberEntries();
         Assertions.assertEquals(1, instructions.getNumberEntries());
         Assertions.assertNotEquals(2, instructions.getNumberEntries());
         Assertions.assertNotEquals(-1, instructions.getNumberEntries());

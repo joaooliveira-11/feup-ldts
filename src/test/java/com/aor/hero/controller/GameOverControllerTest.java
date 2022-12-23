@@ -5,7 +5,6 @@ import com.aor.hero.controller.menu.GameOverController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.menu.GameOver;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -31,7 +30,7 @@ public class GameOverControllerTest {
         gameovercontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(gameOver);
         Assertions.assertNotEquals(null,gameOver.isSelectedGiveUp());
-        Assertions.assertEquals(true, gameOver.isSelectedGiveUp());
+        Assertions.assertTrue(gameOver.isSelectedGiveUp());
         Assertions.assertNotEquals(false,gameOver.isSelectedGiveUp());
         Assertions.assertEquals(gameOver,gameovercontroller.getModel());
     }
@@ -40,7 +39,7 @@ public class GameOverControllerTest {
     void GameOverSelectedTryAgain() throws IOException {
         gameovercontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(gameovercontroller.getModel());
-        Assertions.assertEquals(true,gameOver.isSelectedTryAgain());
+        Assertions.assertTrue(gameOver.isSelectedTryAgain());
         Assertions.assertNotEquals(false,gameOver.isSelectedTryAgain());
         Assertions.assertNotEquals(null,gameOver.isSelectedTryAgain());
         Assertions.assertEquals(gameOver,gameovercontroller.getModel());

@@ -1,5 +1,5 @@
 package com.aor.hero.controller;
-import com.aor.hero.Game;;
+import com.aor.hero.Game;
 import com.aor.hero.controller.menu.InstructionsController;
 import com.aor.hero.gui.GUI;
 import com.aor.hero.model.menu.Instructions;
@@ -28,7 +28,7 @@ public class  InstructionsControllerTest {
         instructionsrcontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotEquals(instructions.isSelectedReturn(), false);
         Assertions.assertNotNull(instructionsrcontroller.getModel());
-        Assertions.assertEquals(true,instructions.isSelectedReturn());
+        Assertions.assertTrue(instructions.isSelectedReturn());
         Assertions.assertNotEquals(false,instructions.isSelectedReturn());
         Assertions.assertEquals(instructions,instructionsrcontroller.getModel());
     }

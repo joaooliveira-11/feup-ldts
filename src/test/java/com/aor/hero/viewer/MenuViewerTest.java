@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class MenuViewerTest {
-    private MenuViewer menuViewer= new MenuViewer(new Menu());
-    private GUI gui = Mockito.mock(GUI.class);
+    private final MenuViewer menuViewer= new MenuViewer(new Menu());
+    private final GUI gui = Mockito.mock(GUI.class);
 
     @Test
     void drawElements() {

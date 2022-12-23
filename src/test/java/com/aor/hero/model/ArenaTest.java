@@ -24,13 +24,11 @@ public class ArenaTest {
 
     @Test
     void Arena_getwidth(){
-        Assertions.assertNotNull(arena.getWidth());
         Assertions.assertEquals(10, arena.getWidth());
     }
 
     @Test
     void Arena_getheight(){
-        Assertions.assertNotNull(arena.getHeight());
         Assertions.assertEquals(12, arena.getHeight());
     }
 
@@ -59,21 +57,21 @@ public class ArenaTest {
         Position position = new Position(99,99);
         Position position2 = new Position(12,12);
         Assertions.assertNotEquals(true, arena.isMonster(position));
-        Assertions.assertEquals(true, arena.isMonster(position2));
+        Assertions.assertTrue(arena.isMonster(position2));
     }
     @Test
     void Arena_isCoin(){
         Position position = new Position(99,99);
         Position position2 = new Position(1,2);
         Assertions.assertNotEquals(true, arena.isCoin(position));
-        Assertions.assertEquals(true, arena.isCoin(position2));
+        Assertions.assertTrue(arena.isCoin(position2));
     }
     @Test
     void Arena_isSuperCoin(){
         Position position = new Position(99,99);
         Position position2 = new Position(7,7);
         Assertions.assertNotEquals(true, arena.isSuperCoin(position));
-        Assertions.assertEquals(true, arena.isSuperCoin(position2));
+        Assertions.assertTrue(arena.isSuperCoin(position2));
     }
 
     @Test
@@ -93,7 +91,7 @@ public class ArenaTest {
         Position position = new Position(99,99);
         Position position2 = new Position(15,15);
         Assertions.assertNotEquals(true, arena.isGate(position));
-        Assertions.assertEquals(true, arena.isGate(position2));
+        Assertions.assertTrue(arena.isGate(position2));
     }
 
 }

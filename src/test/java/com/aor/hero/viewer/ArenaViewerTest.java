@@ -16,11 +16,10 @@ import java.util.Arrays;
 class ArenaViewerTest {
     private GUI gui;
     private GameViewer viewer;
-    private Arena arena;
 
     @BeforeEach
     void setUp() {
-        arena = new Arena(10, 10);
+        Arena arena = new Arena(10, 10);
         gui = Mockito.mock(GUI.class);
         viewer = new GameViewer(arena);
 

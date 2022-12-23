@@ -28,7 +28,7 @@ public class MenuControllerTest {
         menucontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.SELECT,0);
-        Assertions.assertEquals(true,menu.isSelectedInstructions());
+        Assertions.assertTrue(menu.isSelectedInstructions());
         Assertions.assertNotEquals(false, menu.isSelectedInstructions());
         menu.nextEntry();
         Assertions.assertNotNull(menu);
@@ -43,7 +43,7 @@ public class MenuControllerTest {
         Assertions.assertNotNull(menucontroller);
         menucontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(menucontroller.getModel());
-        Assertions.assertEquals(true, menu.isSelectedStart());
+        Assertions.assertTrue(menu.isSelectedStart());
         Assertions.assertEquals(menu,menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(menucontroller.getModel());
@@ -60,14 +60,14 @@ public class MenuControllerTest {
         Assertions.assertNotNull(menucontroller.getModel());
         Assertions.assertNotEquals(true, menu.isSelectedInstructions());
         Assertions.assertNotEquals(true, menu.isSelectedExit());
-        Assertions.assertEquals(true, menu.isSelectedStart());
+        Assertions.assertTrue(menu.isSelectedStart());
         Assertions.assertEquals(menu,menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.DOWN, 0);
         Assertions.assertNotNull(menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.SELECT,0);
-        Assertions.assertEquals(true ,menu.isSelectedInstructions());
+        Assertions.assertTrue(menu.isSelectedInstructions());
         Assertions.assertNotEquals(true, menu.isSelectedExit());
-        Assertions.assertEquals(false, menu.isSelectedStart());
+        Assertions.assertFalse(menu.isSelectedStart());
         menu.nextEntry();
         Assertions.assertNotNull(menu);
         Assertions.assertEquals(menu,menucontroller.getModel());
@@ -75,7 +75,7 @@ public class MenuControllerTest {
         Assertions.assertNotNull(menucontroller.getModel());
         menucontroller.step(game, GUI.ACTION.SELECT,0);
         Assertions.assertNotNull(menucontroller.getModel());
-        Assertions.assertEquals(false, menu.isSelectedExit());
+        Assertions.assertFalse(menu.isSelectedExit());
         menu.nextEntry();
         Assertions.assertNotNull(menu);
         Assertions.assertEquals(menu,menucontroller.getModel());

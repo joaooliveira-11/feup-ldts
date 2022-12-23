@@ -1,7 +1,6 @@
 package com.aor.hero.viewer.game;
 
 import com.aor.hero.gui.GUI;
-import com.aor.hero.model.game.elements.Coin;
 import com.aor.hero.model.game.elements.Gate;
 
 public class GateViewer implements ElementViewer<Gate>{
