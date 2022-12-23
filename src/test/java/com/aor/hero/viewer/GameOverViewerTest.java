@@ -15,9 +15,9 @@ public class GameOverViewerTest {
     @Test
     void drawElements() {
         gameOverViewer.drawElements(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 5), "GAMEOVER", "#FFFFFF");
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 6), "YOU FAILLED", "#FFFFFF");
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7), "THE TEST", "#FFFFFF");
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(2, 9), "YOU CAN DO BETTER!", "#FFFFFF");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 5), "GAMEOVER", "#FF0000");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 6), "YOU FAILLED", "#FF0000");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(5, 7), "THE TEST", "#FF0000");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(2, 9), "YOU CAN DO BETTER!", "#FF0000");
     }
 }

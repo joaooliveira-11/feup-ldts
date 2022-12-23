@@ -209,6 +209,18 @@ Devido ao uso de interfaces e classes abstratas, que simplificaram o nosso códi
 ### Long Parameter List
 Para desenhar todos os elementos do mapa através da leitura de um ficheiro .txt, usámos o método drawCharacter que é passado com 4 parâmetros.
 
+## Testing
+
+- Coverage:
+
+![coverage_final](images/coverage_final.png)
+
+- Pit test:
+
+![pittest_final](images/pittest_final.png)
+
+- Link for mutation test : http://localhost:63342/lanterna-Pacman/build/reports/pitest/202212231831/index.html?_ijt=bh4gsd6vfl8p2huegnof21p29c&_ij_reload=RELOAD_ON_SAVE
+
 
 ## Self-evaluation
 

@@ -12,9 +12,9 @@ public class GameWinViewer extends Viewer<GameWin> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(1, 5), "Congratulations Player", "#FFFFFF");
-        gui.drawText(new Position(1, 6), "you passed all levels", "#FFFFFF");
-        gui.drawText(new Position(1, 7), "with sucess", "#FFFFFF");
+        gui.drawText(new Position(1, 5), "Congratulations Player", "#0000CC");
+        gui.drawText(new Position(1, 6), "you passed all levels", "#0000CC");
+        gui.drawText(new Position(1, 7), "with sucess", "#0000CC");
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
                     new Position(5, 20 + i),

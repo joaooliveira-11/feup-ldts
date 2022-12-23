@@ -13,10 +13,10 @@ public class GameOverViewer extends Viewer<GameOver> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "GAMEOVER", "#FFFFFF");
-        gui.drawText(new Position(5, 6), "YOU FAILLED", "#FFFFFF");
-        gui.drawText(new Position(5, 7), "THE TEST", "#FFFFFF");
-        gui.drawText(new Position(2, 9), "YOU CAN DO BETTER!", "#FFFFFF");
+        gui.drawText(new Position(5, 5), "GAMEOVER", "#FF0000");
+        gui.drawText(new Position(5, 6), "YOU FAILLED", "#FF0000");
+        gui.drawText(new Position(5, 7), "THE TEST", "#FF0000");
+        gui.drawText(new Position(2, 9), "YOU CAN DO BETTER!", "#FF0000");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(

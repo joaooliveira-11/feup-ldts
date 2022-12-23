@@ -25,15 +25,16 @@ public class InstructionsViewer extends Viewer<Instructions> {
 
 
         gui.drawText(new Position(0, 12), "POINTS", "#FC3626");
-        gui.drawText(new Position(0, 13), "Hit coin: +10", "#FFFFFF");
-        gui.drawText(new Position(0, 14), "Hit supercoin: +50", "#FFFFFF");
-        gui.drawText(new Position(0, 15), "Hit monster: -100", "#FFFFFF");
+        gui.drawText(new Position(0, 13), "coin:win 10p", "#FFFFFF");
+        gui.drawText(new Position(0, 14), "supercoin:win 50p", "#FFFFFF");
+        gui.drawText(new Position(0, 15), "blue monster:win 100p", "#FFFFFF");
 
         gui.drawText(new Position(0, 17), "Lives", "#FC3626");
-        gui.drawText(new Position(0, 18), "hit monster power=0: -1", "#FFFFFF");
-        gui.drawText(new Position(0, 19), "pass the lvl1 with:", "#FFFFFF");
-        gui.drawText(new Position(0, 20), "lives = 3: -0", "#FFFFFF");
-        gui.drawText(new Position(0, 21), "lives < 3: +1", "#FFFFFF");
+        gui.drawText(new Position(0, 18), "hit red monster: -1", "#FFFFFF");
+
+        gui.drawText(new Position(0, 20), "SUPERCOIN", "#FC3626");
+        gui.drawText(new Position(0, 21), "Red to blue monster", "#FFFFFF");
+        gui.drawText(new Position(0, 22), "for 5s", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             gui.drawText(
