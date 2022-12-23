@@ -51,9 +51,10 @@ Projeto desenvolvido por Bernardo Pinto (up202108842), Eduardo Oliveira (up20210
 
 - **Fontes:** O nosso jogo apresenta fontes para a criação do Pacman, pastilhas, super pastilhas e dos monstros.
 
-|                     Menu                     |
-|:--------------------------------------------:|
-| ![Menu](docs/images/menuprincipal_final.png) |
+| Menu | Instructions |
+|:----------:|:---------:|
+| ![Menu_Implementado](docs/images/menuprincipal_final.png) | ![instructions](docs/images/instructions_final.png) |
+
 
 | Game Win | Game Over |
 |:----------:|:---------:|
