@@ -33,10 +33,19 @@ public class MonsterController extends GameController {
     }
 
     private boolean moveMonster(Monster monster, Position position) {
-        if (getModel().isEmpty(position)) {
-                monster.setPosition(position);
-                if (getModel().getPacman().getPosition().equals(position) && getModel().getPacman().getDirection()=="none") {
-                    if (!(getModel().getMonster(position).isRunning())) {
+        if (getModel().isGate(position)){
+            for(Gate gate : getModel().getGates()){
+                if(!gate.getPosition().equals(position)){
+                    Position position2 = new Position(gate.getPosition().getX(), gate.getPosition().getY());
+                    monster.setPosition(position2);
+                }
+            }
+            return true;
+        }
+        else if (getModel().isEmpty(position)) {
+            monster.setPosition(position);
+            if (getModel().getPacman().getPosition().equals(position) && getModel().getPacman().getDirection()=="none") {
+                if (!(getModel().getMonster(position).isRunning())) {
                         getModel().getPacman().diminuirVidas();
                         music.startLoseLifeMusic();
                         getModel().getPacman().setPosition(new Position(9, 12));
@@ -50,15 +59,6 @@ public class MonsterController extends GameController {
                 }
                 return true;
 
-        }
-        else if (getModel().isGate(position)){
-            for(Gate gate : getModel().getGates()){
-                if(!gate.getPosition().equals(position)){
-                    Position position2 = new Position(gate.getPosition().getX(), gate.getPosition().getY());
-                    getModel().getMonster(position).setPosition(position2);
-                }
-            }
-            return true;
         }
         return false;
     }

@@ -56,7 +56,7 @@ public class ArenaControllerTest {
         arena.setCoins(Arrays.asList(new Coin(1, 2), new Coin(2, 3), new Coin(3, 4)));
         arena.setSuperCoins(Arrays.asList(new SupCoin(7, 7), new SupCoin(8, 8), new SupCoin(9, 9)));
         arena.setGates(Arrays.asList(new Gate(15, 15), new Gate(16, 16)));
-        arena.setMonsters(Arrays.asList(new Monster(12, 12), new Monster(13, 13), new Monster(14, 14)));
+        arena.setMonsters(Arrays.asList(new Monster(12, 12), new Monster(13, 13), new Monster(14, 14), new Monster(15,15)));
         arena.setWalls(Arrays.asList(new Wall(19, 19), new Wall(19, 19)));
     }
     @Test
