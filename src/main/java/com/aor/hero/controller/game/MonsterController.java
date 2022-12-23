@@ -9,6 +9,7 @@ import com.aor.hero.model.game.elements.Monster;
 import com.aor.hero.viewer.Music;
 
 import java.io.IOException;
+import java.util.ConcurrentModificationException;
 
 public class MonsterController extends GameController {
     private long lastMovement;
@@ -33,19 +34,23 @@ public class MonsterController extends GameController {
 
     private boolean moveMonster(Monster monster, Position position) {
         if (getModel().isEmpty(position)) {
-            monster.setPosition(position);
-            if (getModel().getPacman().getPosition().equals(position))
-                if (!(getModel().getMonster(position).isRunning())) {
-                    getModel().getPacman().diminuirVidas();
-                    music.startLoseLifeMusic();
-                    getModel().getPacman().setPosition(new Position(9, 12));
-                    getModel().getPacman().setDirection("none");
-                } else {
-                    music.startKillMonsterMusic();
-                    getModel().getMonsters().remove(getModel().getMonster(position));
-                    getModel().getMonsters().add(new Monster(9, 9));
-                    getModel().getPacman().aumentarpontosmonstro();
+            try{
+                monster.setPosition(position);
+                if (getModel().getPacman().getPosition().equals(position) && getModel().getPacman().getDirection()=="none") {
+                    if (!(getModel().getMonster(position).isRunning())) {
+                        getModel().getPacman().diminuirVidas();
+                        music.startLoseLifeMusic();
+                        getModel().getPacman().setPosition(new Position(9, 12));
+                        getModel().getPacman().setDirection("none");
+                    }else {
+                        music.startKillMonsterMusic();
+                        getModel().getMonsters().remove(getModel().getMonster(position));
+                        getModel().getMonsters().add(new Monster(9, 9));
+                        getModel().getPacman().aumentarpontosmonstro();
+                    }
                 }
+            }
+            catch (ConcurrentModificationException e){}
             return true;
         }
         else if (getModel().isGate(position)){

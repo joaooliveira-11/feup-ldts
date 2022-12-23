@@ -73,6 +73,7 @@ public class PacmanController extends GameController {
                 }
             }
         }
+        else getModel().getPacman().setDirection("none");
     }
 
     public void setdirection(String direction1) {
