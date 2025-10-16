@@ -1,5 +1,8 @@
 ﻿# LDTS_l10gr01 - Pacman
 
+ >**Project**
+>Curricular Unit: [Laboratório de Desenho e Teste de Software](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=560099), 2nd year
+
 ## Game Description
 
 Este jogo é uma implementação em java, usando o terminal lanterna, do clássico Packman, com o objetivo de percorrer um labirinto e comer todas as pastilhas do caminho, sem nunca ser atingido por um fantasma. Um jogador aumenta a sua pontuação, em 10 pontos, ao comer as pastilhas e 50 pontos ao comer uma super pastilha. A cada tentativa, o jogador possui 3 vidas e cada colisão com um fantasma diminui em 1 unidade o número de vidas ou aumenta o número de pontos dependendo se o Pacman está com poder ou não, poder este proveniente de uma super pastilha.
@@ -66,4 +69,5 @@ Projeto desenvolvido por Bernardo Pinto (up202108842), Eduardo Oliveira (up20210
 | Mapa1 | Mapa2 |
 |:----------:|:---------:|
 | ![Mapa1](docs/images/mapa1_final.png) | ![Mapa2](docs/images/mapa2_final.png) |
+
 
